@@ -1,0 +1,212 @@
+type Miembro
+  @model
+  @key(name: "bySemillero", fields: ["semilleroID"])
+  @key(name: "byEquipo", fields: ["equipoID"])
+  @key(name: "byMinisterio", fields: ["ministerioID"]) {
+  id: ID!
+  nombres: String!
+  apellidos: String!
+  seudonimo: String
+  sexo: Sexo
+  fecha_nacimiento: String
+  nacionalidad: String
+  ciudad_residencia: String
+  direccion: String
+  correo: String
+  estado_civil: Civil
+  numero_hijos: Int
+  nombre_conyuge: String
+  ocupacion_laboral: String
+  lugar_trabajo: String
+  cargo_trabajo: String
+  tiempo_libre: String
+  numero_hermanos: Int
+  representanteID: ID
+  parentesco_representante: Parentesco #relación con el representante
+  lugar_estudio: String
+  jornada_academica: Jornada
+  nivel_academico_actual: Academico #nivel académico en curso
+  telefono_convencional: String
+  telefono_celular: String
+  whatsapp: String
+  nombre_padre: String
+  nombre_madre: String
+  vive_con: String
+  invitadorID: ID
+  invitado_por: Miembro @connection(fields: ["invitadorID"])
+  parentesco_invitador: Parentesco
+  createdAt: AWSDate #Fecha de memebresía
+  registrado_por: String
+  status: Status
+  asistencias: [Asistencia] @connection(keyName: "byMiembro", fields: ["id"])
+  servicios: [Servicio] @connection(keyName: "byMiembro", fields: ["id"])
+  representante: Miembro @connection(fields: ["representanteID"]) #miembro de la iglesia que lo representa
+  semilleroID: ID
+  semillero: Semillero @connection(fields: ["semilleroID"])
+  equipoID: ID
+  equipo: Equipo @connection(fields: ["equipoID"])
+  ministerioID: ID
+  ministerio: Ministerio @connection(fields: ["ministerioID"])
+}
+
+type Asistencia
+  @model
+  @key(name: "byMiembro", fields: ["miembroID"])
+  @key(name: "byReunion", fields: ["reunionID"]) {
+  miembroID: ID!
+  reunionID: ID!
+  miembro: Miembro @connection(fields: ["miembroID"])
+  reunion: Reunion @connection(fields: ["reunionID"])
+}
+
+type Reunion @model @key(name: "byEquipo", fields: ["caracter"]) {
+  id: ID!
+  asistencia: [Asistencia] @connection(keyName: "byReunion", fields: ["id"])
+  servidores: [Servicio]
+    @connection(keyName: "servicioByReunion", fields: ["id"])
+  caracter: Caracter
+  horario: String
+  fecha: String
+  lugar: String
+}
+
+type Servicio
+  @model
+  @key(name: "byMinisterio", fields: ["ministerioID"])
+  @key(name: "byMiembro", fields: ["miembroID"])
+  @key(name: "servicioByReunion", fields: ["reunionID"]) {
+  ministerioID: ID!
+  miembroID: ID!
+  reunionID: ID!
+  ministerio: Ministerio @connection(fields: ["ministerioID"])
+  miembro: Miembro @connection(fields: ["miembroID"])
+  reunion: Reunion @connection(fields: ["reunionID"])
+}
+type Ministerio @model @key(fields: ["nombre"]) {
+  nombre: ID!
+  servicios: [Servicio] @connection(keyName: "byMinisterio", fields: ["nombre"])
+  servidores: [Miembro] @connection(keyName: "byMinisterio", fields: ["nombre"])
+  administradorID: ID!
+  administrador: Miembro @connection(fields: ["administradorID"])
+}
+
+type Equipo @model @key(fields: ["nombre"]) {
+  nombre: ID!
+  semilleros: [Semillero] @connection(keyName: "byEquipo", fields: ["nombre"])
+  administradorID: ID
+  caracter: Caracter
+  administrador: Miembro @connection(fields: ["administradorID"])
+  miembros: [Miembro] @connection(keyName: "byEquipo", fields: ["nombre"])
+  reuniones: [Reunion] @connection(keyName: "byEquipo", fields: ["caracter"])
+}
+
+type Semillero @model @key(name: "byEquipo", fields: ["id"]) {
+  id: ID!
+  equipoID: ID!
+  administradorID: ID!
+  dia: String
+  horario: String
+  lugar: String
+  miembros: [Miembro] @connection(keyName: "bySemillero", fields: ["id"])
+  equipo: Equipo @connection(fields: ["equipoID"])
+  administrador: Miembro @connection(fields: ["administradorID"])
+}
+
+enum Sexo {
+  MASCULINO
+  FEMENINO
+}
+
+#Naturaleza de una Reunión
+enum Caracter {
+  ADMINISTRATIVO #Reuniones de planificación de Equipos/Clubes bíblicos
+  CORPORATIVO #Reuniones de planificación general / planificacion eclesial
+  GENERAL #Cultos generales
+  PARTICULAR #Semilleros
+}
+enum Civil {
+  SOLTERO
+  CASADO
+  DIVORCIADO
+  VIUDO
+  UNION_LIBRE
+}
+enum Parentesco {
+  PADRE
+  MADRE
+  HIJO_A
+  HERMANO_A
+  ABUELO_A
+  TIO_A
+  PRIMO_A
+  AMIGO_A
+  CONOCIDO_A
+  PAREJA
+}
+
+enum Jornada {
+  ESTUDIANTIL_MATUTINA
+  ESTUDIANTIL_VESPERTINA
+  ESTUDIANTIL_NOCTURNA
+  LABORAL_TRADICIONAL
+}
+
+enum Academico {
+  PRIMER_GRADO_EGB
+  SEGUNDO_GRADO_EGB
+  TERCER_GRADO_EGB
+  CUARTO_GRADO_EGB
+  QUINTO_GRADO_EGB
+  SEXTO_GRADO_EGB
+  SEPTIMO_GRADO_EGB
+  OCTAVO_GRADO_EGB
+  NOVENO_GRADO_EGB
+  DECIMO_GRADO_EGB
+  PRIMERO_BGU
+  SEGUNDO_BGU
+  TERCERO_BGU
+  PRIMER_SEMESTRE
+  SEGUNDO_SEMESTRE
+  TERCER_SEMESTRE
+  CUARTO_SEMESTRE
+  QUINTO_SEMESTRE
+  SEXTO_SEMESTRE
+  SEPTIMO_SEMESTRE
+  OCTAVO_SEMESTRE
+  NOVENO_SEMESTRE
+  DECIMO_SEMESTRE
+  ONCEAVO_SEMESTRE
+  DOCEAVO_SEMESTRE
+  TRECEAVO_SEMESTRE
+  CATORCEAVO_SEMESTRE
+}
+
+enum Status {
+  SERVIDOR
+  ADMINISTRADOR_DE_EQUIPO
+  ADMINISTRADOR_DE_MINISTERIO
+  ASISTENTE
+}
+
+enum Nacionalidad {
+  ARGENTINA
+  BOLIVIANA
+  CHILENA
+  COLOMBIANA
+  COSTARRICENSE
+  CUBANA
+  DOMINICANA
+  ECUATORIANA
+  ESTADOUNIDENSE
+  GUATEMALTECA
+  HONDURENA
+  MEXICANA
+  NICARAGUENSE
+  PANAMENA
+  PARAGUAYA
+  PUERTORRIQUENA
+  PERUANA
+  SALVADORENA
+  URUGUAYA
+  VENEZOLANA
+}
