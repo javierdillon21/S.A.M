@@ -11,6 +11,13 @@ module.exports = {
         primary: {
           100: "#173E55",
         },
+        secondary: {
+          50: "#FF7A27",
+          100: "#EC7023",
+        },
+        tertiary: {
+          100: "#CBD4C2",
+        },
       },
     },
   },
