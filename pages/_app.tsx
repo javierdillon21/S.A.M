@@ -12,7 +12,7 @@ const client = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider value={client}>
-      <div className="flex flex-row w-screen h-screen bg-gray-100">
+      <div className="flex flex-col-reverse sm:flex-row min-h-screen bg-gray-100">
         <Menu />
         <Component {...pageProps} />
       </div>

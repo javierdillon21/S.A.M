@@ -12,11 +12,14 @@ module.exports = {
           100: "#173E55",
         },
         secondary: {
-          50: "#FF7A27",
-          100: "#EC7023",
+          50: "#E5652A",
+          100: "#E5652A",
         },
         tertiary: {
-          100: "#CBD4C2",
+          100: "#FFFFFC",
+        },
+        quaternary: {
+          100: "#8D7471",
         },
       },
     },
