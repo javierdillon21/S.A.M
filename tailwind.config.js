@@ -21,6 +21,15 @@ module.exports = {
         quaternary: {
           100: "#8D7471",
         },
+        update: {
+          100: "#EEB902",
+        },
+        delete: {
+          100: "#BB342F",
+        },
+        create: {
+          100: "#3FB4F2",
+        },
       },
     },
   },

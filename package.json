@@ -15,7 +15,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-    "aws-amplify": "^4.3.10",
+    "aws-amplify": "^4.3.16",
     "graphql": "^15.8.0",
     "graphql-upload": "^13.0.0",
     "image-capture": "^0.4.0",

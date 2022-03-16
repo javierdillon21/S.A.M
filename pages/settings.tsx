@@ -70,20 +70,20 @@ export default function Settings() {
     null | XLSX.WorkBook | undefined | RegistroExcelMiembro[]
   >();
 
-  //   useEffect(() => {
-  //     async function ff() {
-  //       const equipos = await API.graphql(graphqlOperation(listEquipos));
-  //       const ministerios = await API.graphql(graphqlOperation(listMinisterios));
-  //       const miembros = await API.graphql(
-  //         graphqlOperation(listMiembros, { limit: 100 })
-  //       );
-  //       console.log(equipos);
-  //       console.log(ministerios);
-  //       console.log(miembros);
-  //     }
+  useEffect(() => {
+    async function ff() {
+      const equipos = await API.graphql(graphqlOperation(listEquipos));
+      const ministerios = await API.graphql(graphqlOperation(listMinisterios));
+      const miembros = await API.graphql(
+        graphqlOperation(listMiembros, { limit: 100 })
+      );
+      console.log(equipos);
+      console.log(ministerios);
+      console.log(miembros);
+    }
 
-  //     //ff();
-  //   }, []);
+    ff();
+  }, []);
 
   function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     var files = e.target.files,
