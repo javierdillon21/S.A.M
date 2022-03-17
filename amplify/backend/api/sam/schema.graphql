@@ -9,7 +9,7 @@ type Miembro
   seudonimo: String
   sexo: Sexo
   fecha_nacimiento: String
-  nacionalidad: String
+  nacionalidad: Nacionalidad
   ciudad_residencia: String
   direccion: String
   correo: String

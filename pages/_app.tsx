@@ -1,20 +1,62 @@
 import "../styles/index.css";
 import "../utils/fontAwesome.ts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import Menu from "../components/menu";
 import { createClient, Provider } from "urql";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
-import awsconfig from "../src/aws-exports";
-Amplify.configure(awsconfig);
+import awsmobile from "../src/aws-exports";
+import { useUser } from "../src/utils/user";
+import { useRouter } from "next/router";
+import { useUrqlClient } from "../src/utils/urql";
+import SpinnerLoading from "../components/spinnerLoading";
 
 const client = createClient({
-  url: "https://3hisfcaeuvbtrl4zsvrfx6smby.appsync-api.us-east-1.amazonaws.com/graphql",
+  url: awsmobile.aws_appsync_graphqlEndpoint,
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [user, loadingUser, reCheckUser] = useUser();
+  const router = useRouter();
+  const inLoginPage = router.pathname === "/login";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [urqlClient, loadingUrqlClient] = useUrqlClient(user);
+
+  // on every page visisted
+  useEffect(() => {
+    setIsMenuOpen(false);
+
+    // once logged in, the app will redirect
+    // the user to the root page; then, we'll
+    // check the user to enter to the app.
+    if (router.pathname === "/") {
+      reCheckUser();
+    }
+  }, [router.pathname]);
+
+  useEffect(() => {
+    // we redirect just when the user fetching is
+    // over and there is no user registered found. Otherwise
+    // will render what is below the useEffect.
+    if (!(user || loadingUser)) {
+      router.push("/login");
+    }
+  }, [user, loadingUser]);
+
+  // In the login page, show no app template
+  if (inLoginPage)
+    return (
+      <>
+        <Component {...pageProps} />
+      </>
+    );
+  if (!user || loadingUrqlClient || !urqlClient)
+    return (
+      <div className="h-full flex flex-col justify-center">
+        <SpinnerLoading />
+      </div>
+    );
   return (
-    <Provider value={client}>
+    <Provider value={urqlClient}>
       <div className="flex flex-col-reverse sm:flex-row min-h-screen bg-gray-100">
         <Menu />
         <Component {...pageProps} />

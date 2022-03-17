@@ -134,3 +134,9 @@ interface RegistroExcelMiembro{
     ACTUALIZ_DRIVE?: number
     OBSERVACION?: string
 }
+
+export interface CognitoUserCustom {
+    Session: string
+    challengeName: LoginState
+    username: string
+  }
