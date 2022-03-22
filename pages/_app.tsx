@@ -9,10 +9,14 @@ import { useUser } from "../src/utils/user";
 import { useRouter } from "next/router";
 import { useUrqlClient } from "../src/utils/urql";
 import SpinnerLoading from "../components/spinnerLoading";
+import awsExports from "../src/aws-exports";
+import Amplify from "aws-amplify";
 
 const client = createClient({
   url: awsmobile.aws_appsync_graphqlEndpoint,
 });
+
+Amplify.configure(awsExports);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [user, loadingUser, reCheckUser] = useUser();
@@ -42,13 +46,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [user, loadingUser]);
 
-  // In the login page, show no app template
-  if (inLoginPage)
-    return (
-      <>
-        <Component {...pageProps} />
-      </>
-    );
+  // // In the login page, show no app template
+  // if (inLoginPage)
+  //   return (
+  //     <>
+  //       <Component {...pageProps} />
+  //     </>
+  //   );
   if (!user || loadingUrqlClient || !urqlClient)
     return (
       <div className="h-full flex flex-col justify-center">

@@ -1,13 +1,15 @@
 import { type } from "os";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useMutation } from "urql";
+import { useMutation, useQuery } from "urql";
 import {
   Academico,
   Civil,
   CreateMiembroInput,
   CreateMiembroMutation,
   CreateMiembroMutationVariables,
+  GetMiembroQuery,
+  GetMiembroQueryVariables,
   Jornada,
   Nacionalidad,
   Parentesco,
@@ -19,8 +21,76 @@ import UploadTakePhoto from "./uploadTakePhoto";
 import Input from "./input";
 import CRUDButtons from "./crudButtons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getMiembro, listMiembros } from "../src/graphql/queries";
+import { GetTodayDate } from "../src/utils/date";
+import { ModelPredicateCreator } from "@aws-amplify/datastore";
+import { useRouter } from "next/router";
 
-export default function CreateMemberTemplate() {
+export default function MemberDataTemplate(props: { mode: boolean }) {
+  // const [result, reexecuteQuery] = useQuery({
+  //   query: listMiembros,
+  // });
+
+  // console.log(result.data);
+  const router = useRouter();
+  const miembroID = router.query.id as string;
+  console.log(miembroID);
+  const [readMode, setReadMode] = useState<boolean>(true);
+
+  const [resultRetrieveMiembro, reexecuteRetrieveMiembro] = useQuery<
+    GetMiembroQuery,
+    GetMiembroQueryVariables
+  >({
+    query: getMiembro,
+    variables: { id: miembroID },
+  });
+
+  useEffect(() => {
+    let miembro = resultRetrieveMiembro.data?.getMiembro;
+    if (miembro) {
+      setValueMiembro("id", miembro.id);
+      setValueMiembro("nombres", miembro.nombres);
+      setValueMiembro("apellidos", miembro.apellidos);
+      setValueMiembro("seudonimo", miembro.seudonimo);
+      setValueMiembro("sexo", miembro.sexo);
+      setValueMiembro("fecha_nacimiento", miembro.fecha_nacimiento);
+      setValueMiembro("nacionalidad", miembro.nacionalidad);
+      setValueMiembro("ciudad_residencia", miembro.ciudad_residencia);
+      setValueMiembro("direccion", miembro.direccion);
+      setValueMiembro("correo", miembro.correo);
+      setValueMiembro("estado_civil", miembro.estado_civil);
+      setValueMiembro("numero_hijos", miembro.numero_hijos);
+      setValueMiembro("nombre_conyuge", miembro.nombre_conyuge);
+      setValueMiembro("ocupacion_laboral", miembro.ocupacion_laboral);
+      setValueMiembro("lugar_trabajo", miembro.lugar_trabajo);
+      setValueMiembro("lugar_estudio", miembro.lugar_estudio);
+      setValueMiembro("cargo_trabajo", miembro.cargo_trabajo);
+      setValueMiembro("tiempo_libre", miembro.tiempo_libre);
+      setValueMiembro("numero_hermanos", miembro.numero_hermanos);
+      setValueMiembro("representanteID", miembro.representanteID);
+      setValueMiembro(
+        "parentesco_representante",
+        miembro.parentesco_representante
+      );
+      setValueMiembro("jornada_academica", miembro.jornada_academica);
+      setValueMiembro("nivel_academico_actual", miembro.nivel_academico_actual);
+      setValueMiembro("telefono_celular", miembro.telefono_celular);
+      setValueMiembro("telefono_convencional", miembro.telefono_convencional);
+      setValueMiembro("whatsapp", miembro.whatsapp);
+      setValueMiembro("nombre_padre", miembro.nombre_padre);
+      setValueMiembro("nombre_madre", miembro.nombre_madre);
+      setValueMiembro("vive_con", miembro.vive_con);
+      setValueMiembro("parentesco_invitador", miembro.parentesco_invitador);
+      setValueMiembro("invitadorID", miembro.invitadorID);
+      setValueMiembro("createdAt", miembro.createdAt);
+      setValueMiembro("registrado_por", miembro.registrado_por);
+      setValueMiembro("status", miembro.status);
+      setValueMiembro("semilleroID", miembro.semilleroID);
+      setValueMiembro("equipoID", miembro.equipoID);
+      setValueMiembro("ministerioID", miembro.equipoID);
+    }
+  }, [resultRetrieveMiembro]);
+
   const [createMiembroResult, crearMiembro] = useMutation<
     CreateMiembroMutation,
     CreateMiembroMutationVariables
@@ -30,9 +100,26 @@ export default function CreateMemberTemplate() {
     register: registrarMiembro,
     handleSubmit: handleSubmitMiembro,
     watch: watchMiembro,
-    setError,
+    setValue: setValueMiembro,
     formState: { errors },
-  } = useForm<CreateMiembroInput>();
+  } = useForm<CreateMiembroInput>({
+    defaultValues: {
+      sexo: null,
+      parentesco_invitador: null,
+      parentesco_representante: null,
+      jornada_academica: null,
+      nivel_academico_actual: null,
+      estado_civil: null,
+      status: Status.ASISTENTE,
+      equipoID: null,
+      ministerioID: null,
+      semilleroID: null,
+      nacionalidad: Nacionalidad.ECUATORIANA,
+      createdAt: GetTodayDate(), //año-mes-dia
+    },
+  });
+
+  console.log(watchMiembro());
 
   function SubmitMiembro(miembroInput: CreateMiembroInput) {
     crearMiembro({
@@ -74,9 +161,21 @@ export default function CreateMemberTemplate() {
         semilleroID: miembroInput.semilleroID,
         equipoID: miembroInput.equipoID,
         ministerioID: miembroInput.ministerioID,
+        fecha_bautizo: miembroInput.fecha_bautizo,
         //telefono: miembroInput.telefonosPersona.map((t) => t.telefono),
       },
-    });
+    })
+      .then((res) => {
+        if (!res.error) {
+          console.log("Member created succesfully");
+          router.push("/members");
+        } else {
+          console.error("Error creating the member:", res.error);
+        }
+      })
+      .catch((err) => {
+        console.error("Error creating the member:", err);
+      });
   }
   return (
     <div className="flex flex-col w-full items-center gap-6 mb-7">
@@ -89,10 +188,16 @@ export default function CreateMemberTemplate() {
           <UploadTakePhoto></UploadTakePhoto>
           <span className="flex border-b font-bold text-2xl text-primary-100 justify-between">
             Datos personales
-            <span className="flex gap-x-2 sm:gap-x-1">
-              <button className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-create-100">
+            <span id="controls" className="flex gap-x-2 sm:gap-x-1">
+              <button
+                className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-create-100"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setReadMode(!readMode);
+                }}
+              >
                 <FontAwesomeIcon
-                  icon="edit"
+                  icon={readMode ? "edit" : "eye"}
                   size="sm"
                   className="text-current text-base"
                 />
@@ -115,6 +220,7 @@ export default function CreateMemberTemplate() {
                 required: true,
               })}
               errorCondition={errors.nombres}
+              readOnly={readMode}
             ></Input>
             <Input
               label="Apellidos"
@@ -124,6 +230,7 @@ export default function CreateMemberTemplate() {
                 required: true,
               })}
               errorCondition={errors.apellidos}
+              readOnly={readMode}
             ></Input>
             <Input
               label="Identificación"
@@ -134,6 +241,7 @@ export default function CreateMemberTemplate() {
               })}
               errorCondition={errors.id}
               errorText="Sólo dígitos (10)"
+              readOnly={readMode}
             ></Input>
             <Input
               label="Seudónimo"
@@ -143,15 +251,16 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.seudonimo}
+              readOnly={readMode}
             ></Input>
             <Input
               type="select"
               label="Sexo"
-              defaultValue=""
               register={registrarMiembro("sexo", {
                 required: true,
               })}
               errorCondition={errors.sexo}
+              disabled={readMode}
             >
               {Object.keys(Sexo).map((op, i) => {
                 return <option key={`${op}-${i}-Sexo`}>{op}</option>;
@@ -164,6 +273,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.fecha_nacimiento}
+              readOnly={readMode}
             ></Input>
             <Input
               type="select"
@@ -173,6 +283,7 @@ export default function CreateMemberTemplate() {
                 required: true,
               })}
               errorCondition={errors.nacionalidad}
+              disabled={readMode}
             >
               {Object.keys(Nacionalidad).map((op, i) => {
                 return <option key={`${op}-${i}-Nacionalidad`}>{op}</option>;
@@ -186,6 +297,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.ciudad_residencia}
+              readOnly={readMode}
             ></Input>
             <Input
               type="textarea"
@@ -196,6 +308,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.direccion}
+              readOnly={readMode}
             ></Input>
             <Input
               label="Email"
@@ -205,6 +318,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.correo}
+              readOnly={readMode}
             ></Input>
             <Input
               type="select"
@@ -214,6 +328,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.estado_civil}
+              disabled={readMode}
             >
               {Object.keys(Civil).map((op, i) => {
                 return <option key={`${op}-${i}-estado_civil`}>{op}</option>;
@@ -229,6 +344,7 @@ export default function CreateMemberTemplate() {
               })}
               errorCondition={errors.telefono_convencional}
               errorText="Sólo dígitos (6)"
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -240,6 +356,7 @@ export default function CreateMemberTemplate() {
               })}
               errorCondition={errors.telefono_celular}
               errorText="Sólo dígitos (10)"
+              readOnly={readMode}
             ></Input>
             <Input
               label="Whatsapp"
@@ -250,6 +367,7 @@ export default function CreateMemberTemplate() {
               })}
               errorCondition={errors.whatsapp}
               errorText="Sólo dígitos (10)"
+              readOnly={readMode}
             ></Input>
           </div>
         </div>
@@ -267,6 +385,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.ocupacion_laboral}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -277,6 +396,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.lugar_trabajo}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -287,6 +407,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.cargo_trabajo}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -297,6 +418,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.tiempo_libre}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -307,6 +429,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.lugar_estudio}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -316,6 +439,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.jornada_academica}
+              disabled={readMode}
             >
               {Object.keys(Jornada).map((op, i) => {
                 return (
@@ -331,6 +455,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.nivel_academico_actual}
+              disabled={readMode}
             >
               {Object.keys(Academico).map((op, i) => {
                 return (
@@ -359,6 +484,7 @@ export default function CreateMemberTemplate() {
                 pattern: /[0-9]+/,
               })}
               errorCondition={errors.numero_hermanos}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -371,6 +497,7 @@ export default function CreateMemberTemplate() {
                 pattern: /[0-9]+/,
               })}
               errorCondition={errors.numero_hijos}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -381,6 +508,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.nombre_conyuge}
+              readOnly={readMode}
             ></Input>
             {/* SI ES MENOR DE EDAD --- ZONA DE CAMPEONES */}
 
@@ -392,6 +520,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.nombre_padre}
+              readOnly={readMode}
             ></Input>
             <Input
               label="Nombre de la madre"
@@ -401,6 +530,16 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.nombre_madre}
+              readOnly={readMode}
+            ></Input>
+            <Input
+              type="date"
+              label="Fecha de bautizo"
+              register={registrarMiembro("fecha_bautizo", {
+                required: false,
+              })}
+              errorCondition={errors.fecha_bautizo}
+              readOnly={readMode}
             ></Input>
           </div>
         </div>
@@ -421,6 +560,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.representanteID}
+              readOnly={readMode}
             ></Input>
             <Input
               type="select"
@@ -429,6 +569,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.parentesco_representante}
+              disabled={readMode}
             >
               {Object.keys(Parentesco).map((op, i) => {
                 return (
@@ -447,6 +588,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.invitadorID}
+              readOnly={readMode}
             ></Input>
 
             <Input
@@ -456,6 +598,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.parentesco_invitador}
+              disabled={readMode}
             >
               {Object.keys(Parentesco).map((op, i) => {
                 return (
@@ -471,6 +614,7 @@ export default function CreateMemberTemplate() {
                 required: true,
               })}
               errorCondition={errors.createdAt}
+              readOnly={readMode}
             ></Input>
             <Input
               label="Registrado por"
@@ -480,6 +624,7 @@ export default function CreateMemberTemplate() {
                 pattern: /^[\s\S]+$/,
               })}
               errorCondition={errors.registrado_por}
+              readOnly={readMode}
             ></Input>
           </div>
         </div>
@@ -498,6 +643,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.status}
+              disabled={readMode}
             >
               {Object.keys(Status).map((op, i) => {
                 return <option key={`${op}-${i}-status`}>{op}</option>;
@@ -511,6 +657,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.semilleroID}
+              disabled={readMode}
             >
               {Object.keys(Status).map((op, i) => {
                 return <option key={`${op}-${i}-semilleroID`}>{op}</option>;
@@ -524,6 +671,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.equipoID}
+              disabled={readMode}
             >
               {Object.keys(Status).map((op, i) => {
                 return <option key={`${op}-${i}-equipoID`}>{op}</option>;
@@ -537,6 +685,7 @@ export default function CreateMemberTemplate() {
                 required: false,
               })}
               errorCondition={errors.ministerioID}
+              disabled={readMode}
             >
               {Object.keys(Status).map((op, i) => {
                 return <option key={`${op}-${i}-ministerioID`}>{op}</option>;

@@ -98,6 +98,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -107,6 +108,7 @@ export const onCreateMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -148,6 +150,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -185,6 +188,7 @@ export const onCreateMiembro = /* GraphQL */ `
         updatedAt
       }
       parentesco_invitador
+      fecha_bautizo
       createdAt
       registrado_por
       status
@@ -272,6 +276,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -281,6 +286,7 @@ export const onCreateMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -322,6 +328,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -408,6 +415,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -459,6 +467,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -518,6 +527,7 @@ export const onCreateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -629,6 +639,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -638,6 +649,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -679,6 +691,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -716,6 +729,7 @@ export const onUpdateMiembro = /* GraphQL */ `
         updatedAt
       }
       parentesco_invitador
+      fecha_bautizo
       createdAt
       registrado_por
       status
@@ -803,6 +817,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -812,6 +827,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -853,6 +869,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -939,6 +956,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -990,6 +1008,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1049,6 +1068,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1160,6 +1180,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1169,6 +1190,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1210,6 +1232,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1247,6 +1270,7 @@ export const onDeleteMiembro = /* GraphQL */ `
         updatedAt
       }
       parentesco_invitador
+      fecha_bautizo
       createdAt
       registrado_por
       status
@@ -1334,6 +1358,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1343,6 +1368,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1384,6 +1410,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1470,6 +1497,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1521,6 +1549,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1580,6 +1609,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1664,6 +1694,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1673,6 +1704,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1714,6 +1746,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1839,6 +1872,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1848,6 +1882,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1889,6 +1924,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2014,6 +2050,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2023,6 +2060,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -2064,6 +2102,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2270,6 +2309,7 @@ export const onCreateServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2344,6 +2384,7 @@ export const onCreateServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2353,6 +2394,7 @@ export const onCreateServicio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -2394,6 +2436,7 @@ export const onCreateServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2498,6 +2541,7 @@ export const onUpdateServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2572,6 +2616,7 @@ export const onUpdateServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2581,6 +2626,7 @@ export const onUpdateServicio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -2622,6 +2668,7 @@ export const onUpdateServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2726,6 +2773,7 @@ export const onDeleteServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2800,6 +2848,7 @@ export const onDeleteServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2809,6 +2858,7 @@ export const onDeleteServicio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -2850,6 +2900,7 @@ export const onDeleteServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2954,6 +3005,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3028,6 +3080,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3037,6 +3090,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -3078,6 +3132,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3167,6 +3222,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3241,6 +3297,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3250,6 +3307,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -3291,6 +3349,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3380,6 +3439,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3454,6 +3514,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3463,6 +3524,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -3504,6 +3566,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3627,6 +3690,7 @@ export const onCreateEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3636,6 +3700,7 @@ export const onCreateEquipo = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -3677,6 +3742,7 @@ export const onCreateEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3746,6 +3812,7 @@ export const onCreateEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3855,6 +3922,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3864,6 +3932,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -3905,6 +3974,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -3974,6 +4044,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4083,6 +4154,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4092,6 +4164,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -4133,6 +4206,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4202,6 +4276,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4271,6 +4346,7 @@ export const onCreateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4320,6 +4396,7 @@ export const onCreateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4400,6 +4477,7 @@ export const onCreateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4409,6 +4487,7 @@ export const onCreateSemillero = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -4450,6 +4529,7 @@ export const onCreateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4533,6 +4613,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4582,6 +4663,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4662,6 +4744,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4671,6 +4754,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -4712,6 +4796,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4795,6 +4880,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4844,6 +4930,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4924,6 +5011,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -4933,6 +5021,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -4974,6 +5063,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status

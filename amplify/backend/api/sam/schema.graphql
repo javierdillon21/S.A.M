@@ -35,6 +35,7 @@ type Miembro
   invitadorID: ID
   invitado_por: Miembro @connection(fields: ["invitadorID"])
   parentesco_invitador: Parentesco
+  fecha_bautizo: String
   createdAt: AWSDate #Fecha de memebresía
   registrado_por: String
   status: Status

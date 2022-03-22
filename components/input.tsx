@@ -49,7 +49,8 @@ export default function Input(props: {
     | "radio"
     | "password"
     | "text"
-    | "month";
+    | "month"
+    | "time";
   reactSelectOptions?:
     | { label: string; value: string | number | boolean }[]
     | undefined;
@@ -69,9 +70,7 @@ export default function Input(props: {
   setOnEditing?: Function;
   step?: string;
 }) {
-  const [isReadOnly, setIsReadOnly] = useState(
-    props.readOnly === true || props.toBeEdited === true
-  );
+  const [isReadOnly, setIsReadOnly] = useState(props.readOnly === true);
   const sizeText = props.sizeText || "sm";
 
   let className = `max-w-full bg-white focus:border text-${sizeText} text-gray-800 rounded-lg flex-srink flex-auto ${
@@ -89,7 +88,7 @@ export default function Input(props: {
     value: props.value,
     step: props.step,
     defaultValue: props.defaultValue,
-    readOnly: isReadOnly,
+    readOnly: props.readOnly,
     ...(props.register || undefined),
   };
 
@@ -115,7 +114,7 @@ export default function Input(props: {
             props.isReactSelectCreatable ? (
               <div
                 className={`w-full ${
-                  isReadOnly ? "pointer-events-none" : "pointer-events-auto"
+                  props.readOnly ? "pointer-events-none" : "pointer-events-auto"
                 }`}
               >
                 <CreatableSelect
@@ -128,7 +127,7 @@ export default function Input(props: {
                   className={className}
                   options={props.reactSelectOptions}
                   isSearchable={
-                    !isReadOnly && Boolean(props.isReactSelectSearchable)
+                    !props.readOnly && Boolean(props.isReactSelectSearchable)
                   }
                   formatCreateLabel={(inputValue) => (
                     <span>Añadir "{inputValue}"</span>
@@ -140,7 +139,7 @@ export default function Input(props: {
             ) : (
               <div
                 className={`w-full ${
-                  isReadOnly ? "pointer-events-none" : "pointer-events-auto"
+                  props.readOnly ? "pointer-events-none" : "pointer-events-auto"
                 }`}
               >
                 <Select
@@ -153,7 +152,7 @@ export default function Input(props: {
                   className={className}
                   options={props.reactSelectOptions}
                   isSearchable={
-                    !isReadOnly && Boolean(props.isReactSelectSearchable)
+                    !props.readOnly && Boolean(props.isReactSelectSearchable)
                   }
                   isDisabled={props.disabled}
                 />
@@ -164,7 +163,7 @@ export default function Input(props: {
       ) : (
         <div
           className={`w-full ${
-            isReadOnly ? "pointer-events-none" : "pointer-events-auto"
+            props.readOnly ? "pointer-events-none" : "pointer-events-auto"
           }`}
         >
           <Select
@@ -186,7 +185,7 @@ export default function Input(props: {
           list={props.name || props.label}
           onClick={(e) => {
             // cleaning on clean
-            if (!isReadOnly) e.currentTarget.value = "";
+            if (!props.readOnly) e.currentTarget.value = "";
           }}
         />
         <datalist id={props.name || props.label}>{props.children}</datalist>

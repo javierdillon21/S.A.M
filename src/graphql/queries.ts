@@ -98,6 +98,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -107,6 +108,7 @@ export const getMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -148,6 +150,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -185,6 +188,7 @@ export const getMiembro = /* GraphQL */ `
         updatedAt
       }
       parentesco_invitador
+      fecha_bautizo
       createdAt
       registrado_por
       status
@@ -272,6 +276,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -281,6 +286,7 @@ export const getMiembro = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -322,6 +328,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -408,6 +415,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -459,6 +467,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -518,6 +527,7 @@ export const getMiembro = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -603,6 +613,7 @@ export const listMiembros = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -612,6 +623,7 @@ export const listMiembros = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -653,6 +665,7 @@ export const listMiembros = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -762,6 +775,7 @@ export const getAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -771,6 +785,7 @@ export const getAsistencia = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -812,6 +827,7 @@ export const getAsistencia = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -911,6 +927,7 @@ export const listAsistencias = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1043,6 +1060,7 @@ export const getServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1117,6 +1135,7 @@ export const getServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1126,6 +1145,7 @@ export const getServicio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1167,6 +1187,7 @@ export const getServicio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1273,6 +1294,7 @@ export const listServicios = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1345,6 +1367,7 @@ export const getMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1419,6 +1442,7 @@ export const getMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1428,6 +1452,7 @@ export const getMinisterio = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1469,6 +1494,7 @@ export const getMinisterio = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1566,6 +1592,7 @@ export const listMinisterios = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1663,6 +1690,7 @@ export const getEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1672,6 +1700,7 @@ export const getEquipo = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -1713,6 +1742,7 @@ export const getEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1782,6 +1812,7 @@ export const getEquipo = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1863,6 +1894,7 @@ export const listEquipos = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1926,6 +1958,7 @@ export const getSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -1975,6 +2008,7 @@ export const getSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2055,6 +2089,7 @@ export const getSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2064,6 +2099,7 @@ export const getSemillero = /* GraphQL */ `
           updatedAt
         }
         parentesco_invitador
+        fecha_bautizo
         createdAt
         registrado_por
         status
@@ -2105,6 +2141,7 @@ export const getSemillero = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
@@ -2202,6 +2239,7 @@ export const listSemilleros = /* GraphQL */ `
           vive_con
           invitadorID
           parentesco_invitador
+          fecha_bautizo
           createdAt
           registrado_por
           status
