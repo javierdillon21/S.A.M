@@ -6,7 +6,7 @@ export default function Miembro() {
   return (
     <div className="flex flex-col flex-1 w-auto h-auto items-center gap-6">
       <Header title_page="Miembros"></Header>
-      <MemberDataTemplate mode={true}></MemberDataTemplate>
+      <MemberDataTemplate mode={"reading"}></MemberDataTemplate>
     </div>
   );
 }

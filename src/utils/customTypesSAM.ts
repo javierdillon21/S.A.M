@@ -49,6 +49,22 @@ query listEquiposByNombre(
 }
 `;
 
+export const listSemillerosEssencial = /* GraphQL */ `
+query listSemillerosEssencial(
+  $filter: ModelSemilleroFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSemilleros(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      equipoID
+      id
+      administradorID
+      }
+  }
+}
+`;
+
 export type MinisteriosByNombre= {
   nombre:string 
 }

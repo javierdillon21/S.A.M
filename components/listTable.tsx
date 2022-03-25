@@ -21,12 +21,12 @@ export default function ListTable<T>(props: {
   return (
     <>
       <table className={`table-auto text-sm lowercase xsm:normal-case`}>
-        <thead>
+        <thead className="border-b-2">
           <tr>
             {tableHeaders.map((headerText) => (
               <th
                 key={`headerList-${headerText}`}
-                className="sm:px-4 py-1 px-1 mx-0 sm:py-2"
+                className="sm:px-4 py-1 px-1 mx-0 sm:py-2 capitalize"
               >
                 {headerText}
               </th>
@@ -38,7 +38,7 @@ export default function ListTable<T>(props: {
           {props.data.map((element: T, index1: number) => (
             <tr
               key={`list-${index1}`}
-              className={`cursor-pointer`}
+              className={`cursor-pointer hover:bg-gray-200`}
               // onClick={() =>
               //   // The first property of `element` is the ID
               //   // We route to the id page, from our current
@@ -69,7 +69,7 @@ export default function ListTable<T>(props: {
                 return (
                   <td
                     key={`cellList-${index1}-${index2}`}
-                    className={`break-words md:break-normal sm:px-4 py-1 sm:py-2`}
+                    className={`break-words md:break-normal sm:px-4 py-1 sm:py-2 capitalize`}
                   >
                     {value}
                   </td>

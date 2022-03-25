@@ -1,4 +1,3 @@
-import { type } from "os";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "urql";
@@ -8,6 +7,8 @@ import {
   CreateMiembroInput,
   CreateMiembroMutation,
   CreateMiembroMutationVariables,
+  DeleteMiembroMutation,
+  DeleteMiembroMutationVariables,
   GetMiembroQuery,
   GetMiembroQueryVariables,
   Jornada,
@@ -16,17 +17,25 @@ import {
   Sexo,
   Status,
 } from "../src/API";
-import { createMiembro } from "../src/graphql/mutations";
+import {
+  createMiembro,
+  deleteMiembro,
+  updateMiembro,
+} from "../src/graphql/mutations";
 import UploadTakePhoto from "./uploadTakePhoto";
 import Input from "./input";
-import CRUDButtons from "./crudButtons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getMiembro, listMiembros } from "../src/graphql/queries";
 import { GetTodayDate } from "../src/utils/date";
-import { ModelPredicateCreator } from "@aws-amplify/datastore";
 import { useRouter } from "next/router";
+import { listSemillerosEssencial } from "../src/utils/customTypesSAM";
 
-export default function MemberDataTemplate(props: { mode: boolean }) {
+export default function MemberDataTemplate(props: {
+  mode:
+    | "reading"
+    | "creating" /* mode is "reading" for cases in only reading the member's data.
+  In this case, it's possible reading, updating or deleting member's data; Is "creating" to create a new member.*/;
+}) {
   // const [result, reexecuteQuery] = useQuery({
   //   query: listMiembros,
   // });
@@ -34,8 +43,8 @@ export default function MemberDataTemplate(props: { mode: boolean }) {
   // console.log(result.data);
   const router = useRouter();
   const miembroID = router.query.id as string;
-  console.log(miembroID);
-  const [readMode, setReadMode] = useState<boolean>(true);
+
+  const [readMode, setReadMode] = useState<boolean>(props.mode === "reading"); //readMode == true if reading mode; false if updating mode
 
   const [resultRetrieveMiembro, reexecuteRetrieveMiembro] = useQuery<
     GetMiembroQuery,
@@ -45,56 +54,77 @@ export default function MemberDataTemplate(props: { mode: boolean }) {
     variables: { id: miembroID },
   });
 
+  const [resultRetrieveSemilleros, reexecuteRetrieveSemilleros] = useQuery({
+    query: listSemillerosEssencial,
+  });
+  console.log(resultRetrieveSemilleros);
   useEffect(() => {
-    let miembro = resultRetrieveMiembro.data?.getMiembro;
-    if (miembro) {
-      setValueMiembro("id", miembro.id);
-      setValueMiembro("nombres", miembro.nombres);
-      setValueMiembro("apellidos", miembro.apellidos);
-      setValueMiembro("seudonimo", miembro.seudonimo);
-      setValueMiembro("sexo", miembro.sexo);
-      setValueMiembro("fecha_nacimiento", miembro.fecha_nacimiento);
-      setValueMiembro("nacionalidad", miembro.nacionalidad);
-      setValueMiembro("ciudad_residencia", miembro.ciudad_residencia);
-      setValueMiembro("direccion", miembro.direccion);
-      setValueMiembro("correo", miembro.correo);
-      setValueMiembro("estado_civil", miembro.estado_civil);
-      setValueMiembro("numero_hijos", miembro.numero_hijos);
-      setValueMiembro("nombre_conyuge", miembro.nombre_conyuge);
-      setValueMiembro("ocupacion_laboral", miembro.ocupacion_laboral);
-      setValueMiembro("lugar_trabajo", miembro.lugar_trabajo);
-      setValueMiembro("lugar_estudio", miembro.lugar_estudio);
-      setValueMiembro("cargo_trabajo", miembro.cargo_trabajo);
-      setValueMiembro("tiempo_libre", miembro.tiempo_libre);
-      setValueMiembro("numero_hermanos", miembro.numero_hermanos);
-      setValueMiembro("representanteID", miembro.representanteID);
-      setValueMiembro(
-        "parentesco_representante",
-        miembro.parentesco_representante
-      );
-      setValueMiembro("jornada_academica", miembro.jornada_academica);
-      setValueMiembro("nivel_academico_actual", miembro.nivel_academico_actual);
-      setValueMiembro("telefono_celular", miembro.telefono_celular);
-      setValueMiembro("telefono_convencional", miembro.telefono_convencional);
-      setValueMiembro("whatsapp", miembro.whatsapp);
-      setValueMiembro("nombre_padre", miembro.nombre_padre);
-      setValueMiembro("nombre_madre", miembro.nombre_madre);
-      setValueMiembro("vive_con", miembro.vive_con);
-      setValueMiembro("parentesco_invitador", miembro.parentesco_invitador);
-      setValueMiembro("invitadorID", miembro.invitadorID);
-      setValueMiembro("createdAt", miembro.createdAt);
-      setValueMiembro("registrado_por", miembro.registrado_por);
-      setValueMiembro("status", miembro.status);
-      setValueMiembro("semilleroID", miembro.semilleroID);
-      setValueMiembro("equipoID", miembro.equipoID);
-      setValueMiembro("ministerioID", miembro.equipoID);
+    if (props.mode === "reading") {
+      let miembro = resultRetrieveMiembro.data?.getMiembro;
+      let semilleros = resultRetrieveSemilleros.data?.listSemilleros.items;
+
+      if (miembro && semilleros) {
+        setValueMiembro("id", miembro.id);
+        setValueMiembro("nombres", miembro.nombres);
+        setValueMiembro("apellidos", miembro.apellidos);
+        setValueMiembro("seudonimo", miembro.seudonimo);
+        setValueMiembro("sexo", miembro.sexo);
+        setValueMiembro("fecha_nacimiento", miembro.fecha_nacimiento);
+        setValueMiembro("nacionalidad", miembro.nacionalidad);
+        setValueMiembro("ciudad_residencia", miembro.ciudad_residencia);
+        setValueMiembro("direccion", miembro.direccion);
+        setValueMiembro("correo", miembro.correo);
+        setValueMiembro("estado_civil", miembro.estado_civil);
+        setValueMiembro("numero_hijos", miembro.numero_hijos);
+        setValueMiembro("nombre_conyuge", miembro.nombre_conyuge);
+        setValueMiembro("ocupacion_laboral", miembro.ocupacion_laboral);
+        setValueMiembro("lugar_trabajo", miembro.lugar_trabajo);
+        setValueMiembro("lugar_estudio", miembro.lugar_estudio);
+        setValueMiembro("cargo_trabajo", miembro.cargo_trabajo);
+        setValueMiembro("tiempo_libre", miembro.tiempo_libre);
+        setValueMiembro("numero_hermanos", miembro.numero_hermanos);
+        setValueMiembro("representanteID", miembro.representanteID);
+        setValueMiembro(
+          "parentesco_representante",
+          miembro.parentesco_representante
+        );
+        setValueMiembro("jornada_academica", miembro.jornada_academica);
+        setValueMiembro(
+          "nivel_academico_actual",
+          miembro.nivel_academico_actual
+        );
+        setValueMiembro("telefono_celular", miembro.telefono_celular);
+        setValueMiembro("telefono_convencional", miembro.telefono_convencional);
+        setValueMiembro("whatsapp", miembro.whatsapp);
+        setValueMiembro("nombre_padre", miembro.nombre_padre);
+        setValueMiembro("nombre_madre", miembro.nombre_madre);
+        setValueMiembro("vive_con", miembro.vive_con);
+        setValueMiembro("parentesco_invitador", miembro.parentesco_invitador);
+        setValueMiembro("invitadorID", miembro.invitadorID);
+        setValueMiembro("createdAt", miembro.createdAt);
+        setValueMiembro("registrado_por", miembro.registrado_por);
+        setValueMiembro("status", miembro.status);
+        setValueMiembro("semilleroID", miembro.semilleroID);
+        setValueMiembro("equipoID", miembro.equipoID);
+        setValueMiembro("ministerioID", miembro.equipoID);
+      }
     }
-  }, [resultRetrieveMiembro]);
+  }, [resultRetrieveMiembro, resultRetrieveSemilleros]);
 
   const [createMiembroResult, crearMiembro] = useMutation<
     CreateMiembroMutation,
     CreateMiembroMutationVariables
   >(createMiembro);
+
+  const [updateMiembroResult, actualizarMiembro] = useMutation<
+    CreateMiembroMutation,
+    CreateMiembroMutationVariables
+  >(updateMiembro);
+
+  const [deleteMiembroResult, eliminarMiembro] = useMutation<
+    DeleteMiembroMutation,
+    DeleteMiembroMutationVariables
+  >(deleteMiembro);
 
   const {
     register: registrarMiembro,
@@ -119,63 +149,128 @@ export default function MemberDataTemplate(props: { mode: boolean }) {
     },
   });
 
-  console.log(watchMiembro());
-
   function SubmitMiembro(miembroInput: CreateMiembroInput) {
-    crearMiembro({
-      input: {
-        id: miembroInput.id,
-        nombres: miembroInput.nombres,
-        apellidos: miembroInput.apellidos,
-        seudonimo: miembroInput.seudonimo,
-        sexo: miembroInput.sexo,
-        fecha_nacimiento: miembroInput.fecha_nacimiento,
-        nacionalidad: miembroInput.nacionalidad,
-        ciudad_residencia: miembroInput.ciudad_residencia,
-        direccion: miembroInput.direccion,
-        correo: miembroInput.correo,
-        estado_civil: miembroInput.estado_civil,
-        numero_hijos: miembroInput.numero_hijos,
-        nombre_conyuge: miembroInput.nombre_conyuge,
-        ocupacion_laboral: miembroInput.ocupacion_laboral,
-        lugar_trabajo: miembroInput.lugar_trabajo,
-        cargo_trabajo: miembroInput.cargo_trabajo,
-        tiempo_libre: miembroInput.tiempo_libre,
-        numero_hermanos: miembroInput.numero_hermanos,
-        representanteID: miembroInput.representanteID,
-        parentesco_representante: miembroInput.parentesco_representante,
-        lugar_estudio: miembroInput.lugar_estudio,
-        jornada_academica: miembroInput.jornada_academica,
-        nivel_academico_actual: miembroInput.nivel_academico_actual,
-        telefono_celular: miembroInput.telefono_celular,
-        telefono_convencional: miembroInput.telefono_convencional,
-        whatsapp: miembroInput.whatsapp,
-        nombre_padre: miembroInput.nombre_padre,
-        nombre_madre: miembroInput.nombre_madre,
-        vive_con: miembroInput.vive_con,
-        invitadorID: miembroInput.invitadorID,
-        parentesco_invitador: miembroInput.parentesco_invitador,
-        createdAt: miembroInput.createdAt,
-        registrado_por: miembroInput.registrado_por,
-        status: miembroInput.status,
-        semilleroID: miembroInput.semilleroID,
-        equipoID: miembroInput.equipoID,
-        ministerioID: miembroInput.ministerioID,
-        fecha_bautizo: miembroInput.fecha_bautizo,
-        //telefono: miembroInput.telefonosPersona.map((t) => t.telefono),
-      },
-    })
-      .then((res) => {
-        if (!res.error) {
-          console.log("Member created succesfully");
-          router.push("/members");
-        } else {
-          console.error("Error creating the member:", res.error);
-        }
+    if (props.mode === "creating") {
+      crearMiembro({
+        input: {
+          id: miembroInput.id,
+          nombres: miembroInput.nombres,
+          apellidos: miembroInput.apellidos,
+          seudonimo: miembroInput.seudonimo,
+          sexo: miembroInput.sexo,
+          fecha_nacimiento: miembroInput.fecha_nacimiento,
+          nacionalidad: miembroInput.nacionalidad,
+          ciudad_residencia: miembroInput.ciudad_residencia,
+          direccion: miembroInput.direccion,
+          correo: miembroInput.correo,
+          estado_civil: miembroInput.estado_civil,
+          numero_hijos: miembroInput.numero_hijos,
+          nombre_conyuge: miembroInput.nombre_conyuge,
+          ocupacion_laboral: miembroInput.ocupacion_laboral,
+          lugar_trabajo: miembroInput.lugar_trabajo,
+          cargo_trabajo: miembroInput.cargo_trabajo,
+          tiempo_libre: miembroInput.tiempo_libre,
+          numero_hermanos: miembroInput.numero_hermanos,
+          representanteID: miembroInput.representanteID,
+          parentesco_representante: miembroInput.parentesco_representante,
+          lugar_estudio: miembroInput.lugar_estudio,
+          jornada_academica: miembroInput.jornada_academica,
+          nivel_academico_actual: miembroInput.nivel_academico_actual,
+          telefono_celular: miembroInput.telefono_celular,
+          telefono_convencional: miembroInput.telefono_convencional,
+          whatsapp: miembroInput.whatsapp,
+          nombre_padre: miembroInput.nombre_padre,
+          nombre_madre: miembroInput.nombre_madre,
+          vive_con: miembroInput.vive_con,
+          invitadorID: miembroInput.invitadorID,
+          parentesco_invitador: miembroInput.parentesco_invitador,
+          createdAt: miembroInput.createdAt,
+          registrado_por: miembroInput.registrado_por,
+          status: miembroInput.status,
+          semilleroID: miembroInput.semilleroID,
+          equipoID: miembroInput.equipoID,
+          ministerioID: miembroInput.ministerioID,
+          fecha_bautizo: miembroInput.fecha_bautizo,
+          //telefono: miembroInput.telefonosPersona.map((t) => t.telefono),
+        },
       })
-      .catch((err) => {
-        console.error("Error creating the member:", err);
-      });
+        .then((res) => {
+          if (!res.error) {
+            console.log("Member created succesfully");
+            alert("Miembro creado con éxito");
+            router.push("/members");
+          } else {
+            console.error("Error creating the member:", res.error);
+          }
+        })
+        .catch((err) => {
+          console.error("Error creating the member:", err);
+        });
+    } else if (props.mode === "reading") {
+      actualizarMiembro({
+        input: {
+          id: miembroInput.id,
+          nombres: miembroInput.nombres,
+          apellidos: miembroInput.apellidos,
+          seudonimo: miembroInput.seudonimo,
+          sexo: miembroInput.sexo,
+          fecha_nacimiento: miembroInput.fecha_nacimiento,
+          nacionalidad: miembroInput.nacionalidad,
+          ciudad_residencia: miembroInput.ciudad_residencia,
+          direccion: miembroInput.direccion,
+          correo: miembroInput.correo,
+          estado_civil: miembroInput.estado_civil,
+          numero_hijos: miembroInput.numero_hijos,
+          nombre_conyuge: miembroInput.nombre_conyuge,
+          ocupacion_laboral: miembroInput.ocupacion_laboral,
+          lugar_trabajo: miembroInput.lugar_trabajo,
+          cargo_trabajo: miembroInput.cargo_trabajo,
+          tiempo_libre: miembroInput.tiempo_libre,
+          numero_hermanos: miembroInput.numero_hermanos,
+          representanteID: miembroInput.representanteID,
+          parentesco_representante: miembroInput.parentesco_representante,
+          lugar_estudio: miembroInput.lugar_estudio,
+          jornada_academica: miembroInput.jornada_academica,
+          nivel_academico_actual: miembroInput.nivel_academico_actual,
+          telefono_celular: miembroInput.telefono_celular,
+          telefono_convencional: miembroInput.telefono_convencional,
+          whatsapp: miembroInput.whatsapp,
+          nombre_padre: miembroInput.nombre_padre,
+          nombre_madre: miembroInput.nombre_madre,
+          vive_con: miembroInput.vive_con,
+          invitadorID: miembroInput.invitadorID,
+          parentesco_invitador: miembroInput.parentesco_invitador,
+          createdAt: miembroInput.createdAt,
+          registrado_por: miembroInput.registrado_por,
+          status: miembroInput.status,
+          semilleroID: miembroInput.semilleroID,
+          equipoID: miembroInput.equipoID,
+          ministerioID: miembroInput.ministerioID,
+          fecha_bautizo: miembroInput.fecha_bautizo,
+        },
+      })
+        .then((res) => {
+          if (!res.error) {
+            console.log("Member updated succesfully");
+            alert("Datos actualizados con éxito");
+            router.push("/members");
+          } else {
+            console.error("Error updating the member:", res.error);
+          }
+        })
+        .catch((err) => {
+          console.error("Error updating the member:", err);
+        });
+    }
+  }
+  function deleteMiembroHandler() {
+    eliminarMiembro({ input: { id: miembroID } }).then((res) => {
+      if (!res.error) {
+        router.push("/members");
+      } else {
+        console.error("Error deleting member: ", res.error);
+      }
+    });
   }
   return (
     <div className="flex flex-col w-full items-center gap-6 mb-7">
@@ -188,28 +283,37 @@ export default function MemberDataTemplate(props: { mode: boolean }) {
           <UploadTakePhoto></UploadTakePhoto>
           <span className="flex border-b font-bold text-2xl text-primary-100 justify-between">
             Datos personales
-            <span id="controls" className="flex gap-x-2 sm:gap-x-1">
-              <button
-                className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-create-100"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setReadMode(!readMode);
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={readMode ? "edit" : "eye"}
-                  size="sm"
-                  className="text-current text-base"
-                />
-              </button>
-              <button className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-delete-100">
-                <FontAwesomeIcon
-                  icon="user-minus"
-                  size="sm"
-                  className="text-current text-base"
-                />
-              </button>
-            </span>
+            {/* Only if we are in "reading" mode we'll can edit or delete the member's data  */}
+            {props.mode === "reading" && (
+              <span id="controls" className="flex gap-x-2 sm:gap-x-1">
+                <button
+                  className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-create-100"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setReadMode(!readMode);
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={readMode ? "edit" : "eye"}
+                    size="sm"
+                    className="text-current text-base"
+                  />
+                </button>
+                <button
+                  className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-delete-100"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    deleteMiembroHandler();
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon="user-minus"
+                    size="sm"
+                    className="text-current text-base"
+                  />
+                </button>
+              </span>
+            )}
           </span>
           <div className="grid grid-cols-2 gap-x-3 gap-y-1">
             <Input
@@ -631,70 +735,78 @@ export default function MemberDataTemplate(props: { mode: boolean }) {
 
         {/* INFORMACIÓN MINISTERIAL */}
         {/* REACT SELECT */}
-        <div className="flex flex-col h-full justify-around gap-y-5">
-          <span className="border-b font-bold text-2xl text-primary-100">
-            Información ministerial
-          </span>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1">
-            <Input
-              type="select"
-              label="Status"
-              register={registrarMiembro("status", {
-                required: false,
-              })}
-              errorCondition={errors.status}
-              disabled={readMode}
-            >
-              {Object.keys(Status).map((op, i) => {
-                return <option key={`${op}-${i}-status`}>{op}</option>;
-              })}
-            </Input>
+        {/* Esta sección sólo se muestra cuando se quiera leer o actualizar los datos. Escencialmente para asignación de nuevos miembros*/}
+        {props.mode === "reading" && (
+          <div className="flex flex-col h-full justify-around gap-y-5">
+            <span className="border-b font-bold text-2xl text-primary-100">
+              Información ministerial
+            </span>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+              <Input
+                type="select"
+                label="Status"
+                register={registrarMiembro("status", {
+                  required: false,
+                })}
+                errorCondition={errors.status}
+                disabled={readMode}
+              >
+                {Object.keys(Status).map((op, i) => {
+                  return <option key={`${op}-${i}-status`}>{op}</option>;
+                })}
+              </Input>
 
-            <Input
-              type="select"
-              label="Semillero"
-              register={registrarMiembro("semilleroID", {
-                required: false,
-              })}
-              errorCondition={errors.semilleroID}
-              disabled={readMode}
-            >
-              {Object.keys(Status).map((op, i) => {
-                return <option key={`${op}-${i}-semilleroID`}>{op}</option>;
-              })}
-            </Input>
+              <Input
+                type="select"
+                label="Semillero"
+                register={registrarMiembro("semilleroID", {
+                  required: false,
+                })}
+                errorCondition={errors.semilleroID}
+                disabled={readMode}
+              >
+                {Object.keys(Status).map((op, i) => {
+                  return <option key={`${op}-${i}-semilleroID`}>{op}</option>;
+                })}
+              </Input>
 
-            <Input
-              type="select"
-              label="Equipo"
-              register={registrarMiembro("equipoID", {
-                required: false,
-              })}
-              errorCondition={errors.equipoID}
-              disabled={readMode}
-            >
-              {Object.keys(Status).map((op, i) => {
-                return <option key={`${op}-${i}-equipoID`}>{op}</option>;
-              })}
-            </Input>
+              <Input
+                type="select"
+                label="Equipo"
+                register={registrarMiembro("equipoID", {
+                  required: false,
+                })}
+                errorCondition={errors.equipoID}
+                disabled={readMode}
+              >
+                {Object.keys(Status).map((op, i) => {
+                  return <option key={`${op}-${i}-equipoID`}>{op}</option>;
+                })}
+              </Input>
 
-            <Input
-              type="select"
-              label="Ministerio"
-              register={registrarMiembro("ministerioID", {
-                required: false,
-              })}
-              errorCondition={errors.ministerioID}
-              disabled={readMode}
-            >
-              {Object.keys(Status).map((op, i) => {
-                return <option key={`${op}-${i}-ministerioID`}>{op}</option>;
-              })}
-            </Input>
+              <Input
+                type="select"
+                label="Ministerio"
+                register={registrarMiembro("ministerioID", {
+                  required: false,
+                })}
+                errorCondition={errors.ministerioID}
+                disabled={readMode}
+              >
+                {Object.keys(Status).map((op, i) => {
+                  return <option key={`${op}-${i}-ministerioID`}>{op}</option>;
+                })}
+              </Input>
+            </div>
           </div>
-        </div>
-        <button className="border rounded-md py-3 sm:py-1 px-2 sm:w-1/5 sm:col-span-2 sm:justify-self-end font-bold text-lg text-tertiary-100 bg-secondary-100">
-          Guardar
+        )}
+        <button
+          className={`border rounded-md py-3 sm:py-1 px-2 sm:w-1/5 sm:col-span-2 sm:justify-self-end font-bold text-lg text-tertiary-100 ${
+            readMode ? "bg-gray-400" : "bg-secondary-100"
+          }`}
+          disabled={readMode}
+        >
+          {props.mode === "creating" ? "Crear miembro" : "Guardar cambios"}
         </button>
       </form>
     </div>
