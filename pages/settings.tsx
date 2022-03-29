@@ -45,6 +45,11 @@ import {
 Amplify.configure(awsExports);
 
 export default function Settings() {
+  //Archivo .xlsx que contiene la base de datos de la congregación.
+  const [archivo, setArchivo] = useState<
+    null | XLSX.WorkBook | undefined | RegistroExcelMiembro[]
+  >();
+
   const [resultMinisteriosByNombre, reexecuteMinisteriosByNombre] = useQuery({
     query: listMinisteriosByNombre,
   });
@@ -52,7 +57,7 @@ export default function Settings() {
     query: listEquiposByNombre,
   });
   const [resultSemilleros, ress] = useQuery({ query: listSemilleros });
-  console.log(resultSemilleros);
+  // console.log(resultSemilleros);
   //Forms para ministerios, equipos y semilleros
   const [createMinisterioResult, crearMinisterio] = useMutation<
     CreateMinisterioMutation,
@@ -85,7 +90,25 @@ export default function Settings() {
     watch: watchEquipo,
     formState: { errors: errorsEquipo },
   } = useForm<CreateEquipoInput>();
-  console.log(watchSemillero());
+
+  // console.log(watchSemillero());
+
+  //Función que lee y transforma los registros del archivo .xlsx en objetos
+  function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    var files = e.target.files,
+      f = files?.item(0);
+    var reader = new FileReader();
+    reader.onload = function (e: ProgressEvent<FileReader>) {
+      var workbook = XLSX.read(e.target?.result);
+      //setArchivo(workbook);
+      workbookToJSON(workbook).then((res) => setArchivo(res));
+    };
+    reader.readAsArrayBuffer(f as File);
+  }
+  if (archivo) {
+    console.log((archivo as RegistroExcelMiembro[])[0]);
+  }
+
   function SubmitMinisterio(input: CreateMinisterioInput) {
     crearMinisterio({
       input: {
@@ -121,7 +144,16 @@ export default function Settings() {
   return (
     <div className="flex flex-col flex-1 w-auto h-auto items-center gap-6">
       <Header title_page="Configuraciones" />
-
+      <div>
+        <input type="file" onChange={(e) => handleFile(e)} />
+        <div>
+          <button
+          // onClick={() => SubirMiembros(archivo as RegistroExcelMiembro[])}
+          >
+            Subir Miembros
+          </button>
+        </div>
+      </div>
       <form onSubmit={handleSubmitEquipo(SubmitEquipo)}>
         <Input
           label="Nombre del equipo"

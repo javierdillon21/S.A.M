@@ -19,8 +19,8 @@ export default function ListTable<T>(props: {
     );
 
   return (
-    <div className="flex w-11/12 px-2 overflow-x-auto sm:overflow-auto">
-      <table className={`table-fixed text-sm lowercase xsm:normal-case `}>
+    <div className="flex w-11/12 px-2 sm:px-0 lg:justify-center overflow-x-auto">
+      <table className={`table-auto text-sm lowercase xsm:normal-case`}>
         <thead className="border-b-2">
           <tr>
             {tableHeaders.map((headerText) => (
