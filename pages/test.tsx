@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "../components/input";
+import { GetFormatedDate } from "../src/utils/date";
 
 export default function Test() {
   return (
@@ -8,8 +9,8 @@ export default function Test() {
         <optgroup label="JUDA">
           <option>Sembrador|Semillero</option>
         </optgroup>
-        <option></option>
       </Input>
+      <span> {GetFormatedDate()}</span>
     </div>
   );
 }

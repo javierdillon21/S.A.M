@@ -6,6 +6,8 @@ export const onCreateMiembro = /* GraphQL */ `
   subscription OnCreateMiembro {
     onCreateMiembro {
       id
+      tipo_documento_identidad
+      titulo_profesional
       nombres
       apellidos
       seudonimo
@@ -37,6 +39,8 @@ export const onCreateMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -68,6 +72,8 @@ export const onCreateMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -102,6 +108,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -112,6 +119,7 @@ export const onCreateMiembro = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -120,6 +128,8 @@ export const onCreateMiembro = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -154,6 +164,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -192,6 +203,7 @@ export const onCreateMiembro = /* GraphQL */ `
       createdAt
       registrado_por
       status
+      jerarquia
       asistencias {
         items {
           id
@@ -215,6 +227,8 @@ export const onCreateMiembro = /* GraphQL */ `
       }
       representante {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -246,6 +260,8 @@ export const onCreateMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -280,6 +296,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -290,6 +307,7 @@ export const onCreateMiembro = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -298,6 +316,8 @@ export const onCreateMiembro = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -332,6 +352,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -385,6 +406,8 @@ export const onCreateMiembro = /* GraphQL */ `
         }
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -419,6 +442,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -437,6 +461,8 @@ export const onCreateMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -471,6 +497,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -497,6 +524,8 @@ export const onCreateMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -531,6 +560,7 @@ export const onCreateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -547,6 +577,8 @@ export const onUpdateMiembro = /* GraphQL */ `
   subscription OnUpdateMiembro {
     onUpdateMiembro {
       id
+      tipo_documento_identidad
+      titulo_profesional
       nombres
       apellidos
       seudonimo
@@ -578,6 +610,8 @@ export const onUpdateMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -609,6 +643,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -643,6 +679,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -653,6 +690,7 @@ export const onUpdateMiembro = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -661,6 +699,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -695,6 +735,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -733,6 +774,7 @@ export const onUpdateMiembro = /* GraphQL */ `
       createdAt
       registrado_por
       status
+      jerarquia
       asistencias {
         items {
           id
@@ -756,6 +798,8 @@ export const onUpdateMiembro = /* GraphQL */ `
       }
       representante {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -787,6 +831,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -821,6 +867,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -831,6 +878,7 @@ export const onUpdateMiembro = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -839,6 +887,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -873,6 +923,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -926,6 +977,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         }
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -960,6 +1013,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -978,6 +1032,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1012,6 +1068,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1038,6 +1095,8 @@ export const onUpdateMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1072,6 +1131,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1088,6 +1148,8 @@ export const onDeleteMiembro = /* GraphQL */ `
   subscription OnDeleteMiembro {
     onDeleteMiembro {
       id
+      tipo_documento_identidad
+      titulo_profesional
       nombres
       apellidos
       seudonimo
@@ -1119,6 +1181,8 @@ export const onDeleteMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -1150,6 +1214,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1184,6 +1250,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1194,6 +1261,7 @@ export const onDeleteMiembro = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -1202,6 +1270,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1236,6 +1306,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1274,6 +1345,7 @@ export const onDeleteMiembro = /* GraphQL */ `
       createdAt
       registrado_por
       status
+      jerarquia
       asistencias {
         items {
           id
@@ -1297,6 +1369,8 @@ export const onDeleteMiembro = /* GraphQL */ `
       }
       representante {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -1328,6 +1402,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1362,6 +1438,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1372,6 +1449,7 @@ export const onDeleteMiembro = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -1380,6 +1458,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1414,6 +1494,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1467,6 +1548,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         }
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1501,6 +1584,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1519,6 +1603,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1553,6 +1639,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1579,6 +1666,8 @@ export const onDeleteMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1613,6 +1702,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1633,6 +1723,8 @@ export const onCreateAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -1664,6 +1756,8 @@ export const onCreateAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1698,6 +1792,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1708,6 +1803,7 @@ export const onCreateAsistencia = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -1716,6 +1812,8 @@ export const onCreateAsistencia = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1750,6 +1848,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1811,6 +1910,8 @@ export const onUpdateAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -1842,6 +1943,8 @@ export const onUpdateAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1876,6 +1979,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1886,6 +1990,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -1894,6 +1999,8 @@ export const onUpdateAsistencia = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -1928,6 +2035,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -1989,6 +2097,8 @@ export const onDeleteAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -2020,6 +2130,8 @@ export const onDeleteAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2054,6 +2166,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2064,6 +2177,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -2072,6 +2186,8 @@ export const onDeleteAsistencia = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2106,6 +2222,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2279,6 +2396,8 @@ export const onCreateServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2313,6 +2432,7 @@ export const onCreateServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2323,6 +2443,8 @@ export const onCreateServicio = /* GraphQL */ `
       }
       miembro {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -2354,6 +2476,8 @@ export const onCreateServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2388,6 +2512,7 @@ export const onCreateServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2398,6 +2523,7 @@ export const onCreateServicio = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -2406,6 +2532,8 @@ export const onCreateServicio = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2440,6 +2568,7 @@ export const onCreateServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2511,6 +2640,8 @@ export const onUpdateServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2545,6 +2676,7 @@ export const onUpdateServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2555,6 +2687,8 @@ export const onUpdateServicio = /* GraphQL */ `
       }
       miembro {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -2586,6 +2720,8 @@ export const onUpdateServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2620,6 +2756,7 @@ export const onUpdateServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2630,6 +2767,7 @@ export const onUpdateServicio = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -2638,6 +2776,8 @@ export const onUpdateServicio = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2672,6 +2812,7 @@ export const onUpdateServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2743,6 +2884,8 @@ export const onDeleteServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2777,6 +2920,7 @@ export const onDeleteServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2787,6 +2931,8 @@ export const onDeleteServicio = /* GraphQL */ `
       }
       miembro {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -2818,6 +2964,8 @@ export const onDeleteServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2852,6 +3000,7 @@ export const onDeleteServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2862,6 +3011,7 @@ export const onDeleteServicio = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -2870,6 +3020,8 @@ export const onDeleteServicio = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -2904,6 +3056,7 @@ export const onDeleteServicio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -2975,6 +3128,8 @@ export const onCreateMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3009,6 +3164,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3019,6 +3175,8 @@ export const onCreateMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -3050,6 +3208,8 @@ export const onCreateMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3084,6 +3244,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3094,6 +3255,7 @@ export const onCreateMinisterio = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -3102,6 +3264,8 @@ export const onCreateMinisterio = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3136,6 +3300,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3192,6 +3357,8 @@ export const onUpdateMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3226,6 +3393,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3236,6 +3404,8 @@ export const onUpdateMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -3267,6 +3437,8 @@ export const onUpdateMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3301,6 +3473,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3311,6 +3484,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -3319,6 +3493,8 @@ export const onUpdateMinisterio = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3353,6 +3529,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3409,6 +3586,8 @@ export const onDeleteMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3443,6 +3622,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3453,6 +3633,8 @@ export const onDeleteMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -3484,6 +3666,8 @@ export const onDeleteMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3518,6 +3702,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3528,6 +3713,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -3536,6 +3722,8 @@ export const onDeleteMinisterio = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3570,6 +3758,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3629,6 +3818,8 @@ export const onCreateEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -3660,6 +3851,8 @@ export const onCreateEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3694,6 +3887,7 @@ export const onCreateEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3704,6 +3898,7 @@ export const onCreateEquipo = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -3712,6 +3907,8 @@ export const onCreateEquipo = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3746,6 +3943,7 @@ export const onCreateEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3782,6 +3980,8 @@ export const onCreateEquipo = /* GraphQL */ `
       miembros {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3816,6 +4016,7 @@ export const onCreateEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3861,6 +4062,8 @@ export const onUpdateEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -3892,6 +4095,8 @@ export const onUpdateEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3926,6 +4131,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -3936,6 +4142,7 @@ export const onUpdateEquipo = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -3944,6 +4151,8 @@ export const onUpdateEquipo = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -3978,6 +4187,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4014,6 +4224,8 @@ export const onUpdateEquipo = /* GraphQL */ `
       miembros {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4048,6 +4260,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4093,6 +4306,8 @@ export const onDeleteEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -4124,6 +4339,8 @@ export const onDeleteEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4158,6 +4375,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4168,6 +4386,7 @@ export const onDeleteEquipo = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -4176,6 +4395,8 @@ export const onDeleteEquipo = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4210,6 +4431,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4246,6 +4468,8 @@ export const onDeleteEquipo = /* GraphQL */ `
       miembros {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4280,6 +4504,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4316,6 +4541,8 @@ export const onCreateSemillero = /* GraphQL */ `
       miembros {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4350,6 +4577,7 @@ export const onCreateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4366,6 +4594,8 @@ export const onCreateSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4400,6 +4630,7 @@ export const onCreateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4416,6 +4647,8 @@ export const onCreateSemillero = /* GraphQL */ `
       }
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -4447,6 +4680,8 @@ export const onCreateSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4481,6 +4716,7 @@ export const onCreateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4491,6 +4727,7 @@ export const onCreateSemillero = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -4499,6 +4736,8 @@ export const onCreateSemillero = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4533,6 +4772,7 @@ export const onCreateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4583,6 +4823,8 @@ export const onUpdateSemillero = /* GraphQL */ `
       miembros {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4617,6 +4859,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4633,6 +4876,8 @@ export const onUpdateSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4667,6 +4912,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4683,6 +4929,8 @@ export const onUpdateSemillero = /* GraphQL */ `
       }
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -4714,6 +4962,8 @@ export const onUpdateSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4748,6 +4998,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4758,6 +5009,7 @@ export const onUpdateSemillero = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -4766,6 +5018,8 @@ export const onUpdateSemillero = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4800,6 +5054,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4850,6 +5105,8 @@ export const onDeleteSemillero = /* GraphQL */ `
       miembros {
         items {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4884,6 +5141,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4900,6 +5158,8 @@ export const onDeleteSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -4934,6 +5194,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -4950,6 +5211,8 @@ export const onDeleteSemillero = /* GraphQL */ `
       }
       administrador {
         id
+        tipo_documento_identidad
+        titulo_profesional
         nombres
         apellidos
         seudonimo
@@ -4981,6 +5244,8 @@ export const onDeleteSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -5015,6 +5280,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID
@@ -5025,6 +5291,7 @@ export const onDeleteSemillero = /* GraphQL */ `
         createdAt
         registrado_por
         status
+        jerarquia
         asistencias {
           nextToken
         }
@@ -5033,6 +5300,8 @@ export const onDeleteSemillero = /* GraphQL */ `
         }
         representante {
           id
+          tipo_documento_identidad
+          titulo_profesional
           nombres
           apellidos
           seudonimo
@@ -5067,6 +5336,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           createdAt
           registrado_por
           status
+          jerarquia
           semilleroID
           equipoID
           ministerioID

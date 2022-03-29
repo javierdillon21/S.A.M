@@ -4,6 +4,10 @@ type Miembro
   @key(name: "byEquipo", fields: ["equipoID"])
   @key(name: "byMinisterio", fields: ["ministerioID"]) {
   id: ID!
+  # --- Añadidos recientemente
+  tipo_documento_identidad: Identificacion! #CI - VISA - PASAPORTE
+  titulo_profesional: String #título de tercer nivel
+  # ----
   nombres: String!
   apellidos: String!
   seudonimo: String
@@ -16,9 +20,9 @@ type Miembro
   estado_civil: Civil
   numero_hijos: Int
   nombre_conyuge: String
-  ocupacion_laboral: String
-  lugar_trabajo: String
-  cargo_trabajo: String
+  ocupacion_laboral: String #profesional o no profesional
+  lugar_trabajo: String #Nombre y y direccion de la empresa o sector laboral
+  cargo_trabajo: String #cargo o puesto que desempeña
   tiempo_libre: String
   numero_hermanos: Int
   representanteID: ID
@@ -39,6 +43,7 @@ type Miembro
   createdAt: AWSDate #Fecha de memebresía
   registrado_por: String
   status: Status
+  jerarquia: Jerarquia
   asistencias: [Asistencia] @connection(keyName: "byMiembro", fields: ["id"])
   servicios: [Servicio] @connection(keyName: "byMiembro", fields: ["id"])
   representante: Miembro @connection(fields: ["representanteID"]) #miembro de la iglesia que lo representa
@@ -183,10 +188,29 @@ enum Academico {
 }
 
 enum Status {
-  SERVIDOR
-  ADMINISTRADOR_DE_EQUIPO
-  ADMINISTRADOR_DE_MINISTERIO
-  ASISTENTE
+  ASIGNADO
+  VISITANTE
+  GANADO
+  ACTIVO # ASISTENTE ACTIVO; SERVIDOR ACTIVO
+  NO_CONSOLIDADO
+  FUERA_DE_ALCANCE
+  TRANSFERIDO #miembro que pasa asignado de uno a otro semillero. Status que aparece en la UI del nuevo sembrador
+  SUSPENDIDO
+}
+enum Jerarquia {
+  PASTOR
+  ASPIRANTE #Asistente aspirante a OBRERO
+  SEMBRADOR #Servidor encargado de un semillero
+  OBRERO #Servidor de la congregación que no es ADMINISTRADOR NI MAYORDOMO
+  ADMINISTRADOR #Servidor encargado de un equipo de semilleros
+  MAYORDOMO #Servidor encargado de un ministerio
+  ASISTENTE #Miembro de la congregación que no es servidor. Status(asignado, visitante, ganado, activo, no consolidado, fuera de alcance, transferido)
+}
+
+enum Identificacion { #tipo de documento de identidad
+  CI
+  VISA
+  PASAPORTE
 }
 
 enum Nacionalidad {

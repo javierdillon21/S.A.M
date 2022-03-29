@@ -11,6 +11,8 @@ import {
   DeleteMiembroMutationVariables,
   GetMiembroQuery,
   GetMiembroQueryVariables,
+  Identificacion,
+  Jerarquia,
   Jornada,
   Nacionalidad,
   Parentesco,
@@ -26,7 +28,7 @@ import UploadTakePhoto from "./uploadTakePhoto";
 import Input from "./input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getMiembro, listMiembros } from "../src/graphql/queries";
-import { GetTodayDate } from "../src/utils/date";
+import { GetFormatedDate } from "../src/utils/date";
 import { useRouter } from "next/router";
 import { listSemillerosEssencial } from "../src/utils/customTypesSAM";
 
@@ -53,16 +55,17 @@ export default function MemberDataTemplate(props: {
     query: getMiembro,
     variables: { id: miembroID },
   });
-
+  console.log(resultRetrieveMiembro);
   const [resultRetrieveSemilleros, reexecuteRetrieveSemilleros] = useQuery({
     query: listSemillerosEssencial,
   });
-  console.log(resultRetrieveSemilleros);
+  // console.log(resultRetrieveSemilleros);
   useEffect(() => {
     if (props.mode === "reading") {
       let miembro = resultRetrieveMiembro.data?.getMiembro;
       let semilleros = resultRetrieveSemilleros.data?.listSemilleros.items;
-
+      console.log(miembroID);
+      console.log(miembro);
       if (miembro && semilleros) {
         setValueMiembro("id", miembro.id);
         setValueMiembro("nombres", miembro.nombres);
@@ -134,18 +137,20 @@ export default function MemberDataTemplate(props: {
     formState: { errors },
   } = useForm<CreateMiembroInput>({
     defaultValues: {
+      tipo_documento_identidad: Identificacion.CI,
       sexo: null,
       parentesco_invitador: null,
       parentesco_representante: null,
       jornada_academica: null,
       nivel_academico_actual: null,
       estado_civil: null,
-      status: Status.ASISTENTE,
+      status: Status.ASIGNADO,
+      jerarquia: Jerarquia.ASISTENTE,
       equipoID: null,
       ministerioID: null,
       semilleroID: null,
       nacionalidad: Nacionalidad.ECUATORIANA,
-      createdAt: GetTodayDate(), //año-mes-dia
+      createdAt: GetFormatedDate(), //año-mes-dia
     },
   });
 
@@ -157,6 +162,9 @@ export default function MemberDataTemplate(props: {
           nombres: miembroInput.nombres,
           apellidos: miembroInput.apellidos,
           seudonimo: miembroInput.seudonimo,
+          tipo_documento_identidad: miembroInput.tipo_documento_identidad,
+          titulo_profesional: miembroInput.titulo_profesional,
+          jerarquia: miembroInput.jerarquia,
           sexo: miembroInput.sexo,
           fecha_nacimiento: miembroInput.fecha_nacimiento,
           nacionalidad: miembroInput.nacionalidad,
@@ -213,6 +221,9 @@ export default function MemberDataTemplate(props: {
           nombres: miembroInput.nombres,
           apellidos: miembroInput.apellidos,
           seudonimo: miembroInput.seudonimo,
+          tipo_documento_identidad: miembroInput.tipo_documento_identidad,
+          titulo_profesional: miembroInput.titulo_profesional,
+          jerarquia: miembroInput.jerarquia,
           sexo: miembroInput.sexo,
           fecha_nacimiento: miembroInput.fecha_nacimiento,
           nacionalidad: miembroInput.nacionalidad,
@@ -336,6 +347,21 @@ export default function MemberDataTemplate(props: {
               errorCondition={errors.apellidos}
               readOnly={readMode}
             ></Input>
+            <Input
+              type="select"
+              label="Tipo de documento"
+              register={registrarMiembro("tipo_documento_identidad", {
+                required: true,
+              })}
+              errorCondition={errors.tipo_documento_identidad}
+              disabled={readMode}
+            >
+              {Object.keys(Identificacion).map((op, i) => {
+                return (
+                  <option key={`${op}-${i}-documento_identidad`}>{op}</option>
+                );
+              })}
+            </Input>
             <Input
               label="Identificación"
               placeholder="999999XXXX"
@@ -481,6 +507,16 @@ export default function MemberDataTemplate(props: {
             Información laboral y/o académica
           </span>
           <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+            <Input
+              label="Título profesional"
+              placeholder="Título de tercer nivel"
+              register={registrarMiembro("titulo_profesional", {
+                required: false,
+                pattern: /^[\s\S]+$/,
+              })}
+              errorCondition={errors.titulo_profesional}
+              readOnly={readMode}
+            ></Input>
             <Input
               label="Ocupación laboral"
               placeholder="Oficio o profesión"
@@ -755,7 +791,19 @@ export default function MemberDataTemplate(props: {
                   return <option key={`${op}-${i}-status`}>{op}</option>;
                 })}
               </Input>
-
+              <Input
+                type="select"
+                label="Jerarquía"
+                register={registrarMiembro("jerarquia", {
+                  required: true,
+                })}
+                errorCondition={errors.jerarquia}
+                disabled={readMode}
+              >
+                {Object.keys(Jerarquia).map((op, i) => {
+                  return <option key={`${op}-${i}-jerarquía`}>{op}</option>;
+                })}
+              </Input>
               <Input
                 type="select"
                 label="Semillero"

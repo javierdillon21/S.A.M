@@ -37,9 +37,11 @@ export default function Miembros() {
           }
         />
         <button
+          id="new member"
           className="border rounded-md py-1 sm:py-1 px-1 w-14 font-bold text-lg text-tertiary-100 bg-create-100"
           onClick={(e) => {
             e.preventDefault();
+            route.push("members/new_member");
           }}
         >
           <FontAwesomeIcon

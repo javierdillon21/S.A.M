@@ -25,6 +25,9 @@ import {
   CreateEquipoInput,
   CreateEquipoMutation,
   CreateEquipoMutationVariables,
+  CreateMiembroInput,
+  CreateMiembroMutation,
+  CreateMiembroMutationVariables,
   CreateMinisterioInput,
   CreateMinisterioMutation,
   CreateMinisterioMutationVariables,
@@ -41,6 +44,7 @@ import {
   listMinisteriosByNombre,
   MinisteriosByNombre,
 } from "../src/utils/customTypesSAM";
+import { GetFormatedDate } from "../src/utils/date";
 
 Amplify.configure(awsExports);
 
@@ -58,6 +62,13 @@ export default function Settings() {
   });
   const [resultSemilleros, ress] = useQuery({ query: listSemilleros });
   // console.log(resultSemilleros);
+
+  //Mutation provisional para crear miembros con datos tomados desde el doc .xlsx
+  const [createMiembroResult, crearMiembro] = useMutation<
+    CreateMiembroMutation,
+    CreateMiembroMutationVariables
+  >(createMiembro);
+
   //Forms para ministerios, equipos y semilleros
   const [createMinisterioResult, crearMinisterio] = useMutation<
     CreateMinisterioMutation,
@@ -107,6 +118,20 @@ export default function Settings() {
   }
   if (archivo) {
     console.log((archivo as RegistroExcelMiembro[])[0]);
+  }
+
+  function UploadMiembrosfromArray(input: CreateMiembroInput) {
+    crearMiembro({
+      input: {
+        id: input.id,
+        nombres: input.nombres,
+        apellidos: input.apellidos,
+        seudonimo: input.seudonimo,
+        sexo: input.sexo,
+        fecha_nacimiento: GetFormatedDate(Number(input.fecha_nacimiento)),
+        nacionalidad: input.nacionalidad,
+      },
+    });
   }
 
   function SubmitMinisterio(input: CreateMinisterioInput) {
