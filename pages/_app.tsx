@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
   return (
     <Provider value={urqlClient}>
-      <div className="flex flex-col-reverse sm:flex-row min-h-screen bg-gray-100">
+      <div className="flex flex-col-reverse min-h-screen min-w-screen sm:flex-row bg-gray-100">
         <Menu />
         <Component {...pageProps} />
       </div>

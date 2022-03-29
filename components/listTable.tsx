@@ -19,14 +19,14 @@ export default function ListTable<T>(props: {
     );
 
   return (
-    <>
-      <table className={`table-auto text-sm lowercase xsm:normal-case`}>
+    <div className="flex w-11/12 px-2 overflow-x-auto sm:overflow-auto">
+      <table className={`table-fixed text-sm lowercase xsm:normal-case `}>
         <thead className="border-b-2">
           <tr>
             {tableHeaders.map((headerText) => (
               <th
                 key={`headerList-${headerText}`}
-                className="sm:px-4 py-1 px-1 mx-0 sm:py-2 capitalize"
+                className="sm:px-4 py-1 px-2 mx-0 sm:py-2 capitalize"
               >
                 {headerText}
               </th>
@@ -69,7 +69,7 @@ export default function ListTable<T>(props: {
                 return (
                   <td
                     key={`cellList-${index1}-${index2}`}
-                    className={`break-words md:break-normal sm:px-4 py-1 sm:py-2 capitalize`}
+                    className={`break-words md:break-normal sm:px-4 py-1 sm:py-2 px-2 capitalize`}
                   >
                     {value}
                   </td>
@@ -79,6 +79,6 @@ export default function ListTable<T>(props: {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

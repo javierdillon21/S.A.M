@@ -22,7 +22,7 @@ export default function Miembros() {
   if (resultPreviewMiembros.data == undefined) return <div>loading...</div>;
   console.log(resultPreviewMiembros);
   return (
-    <div className="flex flex-col flex-1 w-auto h-auto items-center gap-6">
+    <div className="flex flex-col flex-1 w-full h-full items-center gap-6 ">
       <Header title_page="Miembros" />
 
       <section className="flex items-end justify-center gap-2">

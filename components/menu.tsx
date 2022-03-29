@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Menu() {
   return (
-    <div className="flex flex-row sticky bottom-0 inset-x-0 px-1 h-20 text-primary-100 bg-gray-100 items-center sm:flex-col sm:sticky sm:left-0 sm:top-0 sm:bottom-0 sm:h-screen sm:w-16 sm:bg-primary-100 sm:py-5 sm:text-tertiary-100">
+    <div className="flex flex-row sticky bottom-0 inset-x-0 px-1 h-20 text-primary-100 bg-gray-100 items-center sm:flex-col sm:sticky sm:left-0 sm:top-0 sm:bottom-0 sm:h-screen sm:w-16 sm:shrink-0  sm:bg-primary-100 sm:py-5 sm:text-tertiary-100">
       <span className="hidden sm:flex sm:w-4/5 h-auto sm:items-center sm:justify-center sm:py-3 sm:mb-6">
         <Link href={"/"}>
           <FontAwesomeIcon icon="church" size="lg" className="text-current" />
