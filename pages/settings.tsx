@@ -167,7 +167,7 @@ export default function Settings() {
   if (!resultEquiposByNombre.data || !resultMinisteriosByNombre.data)
     return <div>loading...</div>;
   return (
-    <div className="flex flex-col flex-1 w-auto h-auto items-center gap-6">
+    <>
       <Header title_page="Configuraciones" />
       <div>
         <input type="file" onChange={(e) => handleFile(e)} />
@@ -295,7 +295,7 @@ export default function Settings() {
 
         <button className="border py-1 px-2 ">Crear</button>
       </form>
-    </div>
+    </>
   );
 }
 

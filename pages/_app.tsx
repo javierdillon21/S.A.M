@@ -11,6 +11,12 @@ import { useUrqlClient } from "../src/utils/urql";
 import SpinnerLoading from "../components/spinnerLoading";
 import awsExports from "../src/aws-exports";
 import Amplify from "aws-amplify";
+import {
+  SelectedSubTab,
+  SelectedTabChanger,
+  tabInitialState,
+  TabState,
+} from "../src/context/tabs";
 
 const client = createClient({
   url: awsmobile.aws_appsync_graphqlEndpoint,
@@ -24,6 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const inLoginPage = router.pathname === "/login";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [urqlClient, loadingUrqlClient] = useUrqlClient(user);
+  const [selectedSubTab, setSelectedSubTab] =
+    useState<TabState>(tabInitialState);
+
+  function TabChanger(dataTab: TabState) {
+    setSelectedSubTab(dataTab);
+  }
 
   // on every page visisted
   useEffect(() => {
@@ -46,13 +58,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [user, loadingUser]);
 
-  // // In the login page, show no app template
-  // if (inLoginPage)
-  //   return (
-  //     <>
-  //       <Component {...pageProps} />
-  //     </>
-  //   );
+  // In the login page, show no app template
+  if (inLoginPage)
+    return (
+      <>
+        <Component {...pageProps} />
+      </>
+    );
   if (!user || loadingUrqlClient || !urqlClient)
     return (
       <div className="h-full flex flex-col justify-center">
@@ -61,10 +73,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
   return (
     <Provider value={urqlClient}>
-      <div className="flex flex-col-reverse min-h-screen min-w-screen sm:flex-row bg-gray-100">
-        <Menu />
-        <Component {...pageProps} />
-      </div>
+      <SelectedSubTab.Provider value={selectedSubTab}>
+        <SelectedTabChanger.Provider value={TabChanger}>
+          <div className="flex flex-col-reverse min-h-screen min-w-screen sm:flex-row bg-gray-100">
+            <Menu />
+            <div
+              id="bodypage"
+              className="flex flex-col flex-1 w-auto h-auto items-center gap-6"
+            >
+              <Component {...pageProps} />
+            </div>
+          </div>
+        </SelectedTabChanger.Provider>
+      </SelectedSubTab.Provider>
     </Provider>
   );
 }

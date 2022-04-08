@@ -5,7 +5,7 @@ import {
   createMiembro,
   createMinisterio,
 } from "../src/graphql/mutations";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { readExcelFile, saveToExcel } from "../utils/excel";
 import React from "react";
 import { workbookToJSON } from "../utils/excel";
@@ -17,15 +17,21 @@ import {
 } from "../src/graphql/queries";
 import Header from "../components/header";
 import Summary from "../components/summary";
+import { SelectedSubTab, SelectedTabChanger } from "../src/context/tabs";
+import { useRouter } from "next/router";
 
 //Amplify.configure(awsExports);
 
 export default function Home() {
+  const router = useRouter().asPath;
+  const selectedTab = useContext(SelectedSubTab);
+  const TabChanger = useContext(SelectedTabChanger);
+
   return (
-    <div className="flex flex-col flex-1 w-auto h-auto items-center gap-6">
-      <Header title_page="Resumen" />
+    <>
+      <Header title_page={"Resumen"} />
       <Summary />
-    </div>
+    </>
   );
 }
 

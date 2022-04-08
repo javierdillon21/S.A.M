@@ -26,11 +26,13 @@ export default function Menu() {
           size="lg"
           className="text-current scale-110"
         />
-        <FontAwesomeIcon
-          icon="calendar-alt"
-          size="lg"
-          className="text-current scale-110"
-        />
+        <Link href={"/calendar"}>
+          <FontAwesomeIcon
+            icon="calendar-alt"
+            size="lg"
+            className="text-current scale-110"
+          />
+        </Link>
         <FontAwesomeIcon
           icon="chart-pie"
           size="lg"

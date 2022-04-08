@@ -73,7 +73,7 @@ export default function Input(props: {
   const [isReadOnly, setIsReadOnly] = useState(props.readOnly === true);
   const sizeText = props.sizeText || "sm";
 
-  let className = `max-w-full bg-white focus:border text-${sizeText} text-gray-800 rounded-lg flex-srink flex-auto ${
+  let className = `max-w-full bg-white focus:border text-${sizeText} text-gray-800 rounded flex-srink flex-auto ${
     props.type === "checkbox" && "w-5 h-5"
   } ${props.classNameInput}`;
 

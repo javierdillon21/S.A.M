@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   EventHandler,
+  useContext,
   useEffect,
   useRef,
   useState,
@@ -8,12 +9,14 @@ import React, {
 import Input from "./input";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MemberContextMedia, MemberState } from "./memberContext/memberState";
 
 export default function UploadTakePhoto() {
   const [image, setImage] = useState<null | ArrayBuffer | string>(
     "/../public/image_profile.png"
   );
-  const [loading, setLoading] = useState(false);
+
+  const foto = useContext(MemberContextMedia);
 
   async function imageHandler(e: ChangeEvent<HTMLInputElement>) {
     const reader = new FileReader();
@@ -48,6 +51,7 @@ export default function UploadTakePhoto() {
     "
         ></input>
         <button
+          onSubmit={(e) => {}}
           onClick={(e) => {
             e.preventDefault();
             setImage("/../public/image_profile.png");

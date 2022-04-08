@@ -22,9 +22,9 @@ export default function Miembros() {
   if (resultPreviewMiembros.data == undefined) return <div>loading...</div>;
   console.log(resultPreviewMiembros);
   return (
-    <div className="flex flex-col flex-1 w-full h-full overflow-auto items-center gap-6 ">
+    <>
+      {" "}
       <Header title_page="Miembros" />
-
       <section className="flex items-end justify-center gap-2">
         <button className="pb-1 focus:outline-none">
           <FontAwesomeIcon icon="search" />
@@ -51,7 +51,6 @@ export default function Miembros() {
           />
         </button>
       </section>
-
       <ListTable
         data={resultPreviewMiembros.data.listMiembros.items.filter(
           (entity: Object) =>
@@ -65,6 +64,6 @@ export default function Miembros() {
           resultPreviewMiembros.data.listMiembros.items[0]
         )}
       ></ListTable>
-    </div>
+    </>
   );
 }
