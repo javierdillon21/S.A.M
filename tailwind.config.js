@@ -31,6 +31,12 @@ module.exports = {
           100: "#3FB4F2",
         },
       },
+      width: {
+        carnet: "354px",
+      },
+      height: {
+        carnet: "418px",
+      },
     },
   },
   variants: {

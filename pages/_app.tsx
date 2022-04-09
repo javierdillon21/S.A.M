@@ -10,7 +10,8 @@ import { useRouter } from "next/router";
 import { useUrqlClient } from "../src/utils/urql";
 import SpinnerLoading from "../components/spinnerLoading";
 import awsExports from "../src/aws-exports";
-import Amplify from "aws-amplify";
+
+import Amplify, { Storage } from "aws-amplify";
 import {
   SelectedSubTab,
   SelectedTabChanger,
