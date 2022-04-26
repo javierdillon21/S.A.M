@@ -1,23 +1,30 @@
 import { Storage } from "aws-amplify";
-import React, { ChangeEvent, useContext, useState } from "react";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import Input from "../components/input";
 import UploadTakePhoto from "../components/uploadTakePhoto";
 import { MemberContextMedia } from "../src/context/members";
 import { GetFormatedDate } from "../src/utils/date";
 import Image from "next/image";
 import { sendImage } from "../src/utils/storage";
+
 export default function Test() {
   const [image, setImage] = useState<null | ArrayBuffer | string>(
     "/../public/image_profile.png"
   );
-  async function subir() {
-    const result = await Storage.put(`0932530199.png`, image, {
-      contentType: "image/png",
-      // progressCallback(progress) {
-      //   console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
-      // },
-    });
-  }
+
+  useEffect(() => {
+    Storage.get("_foto_0932530199") // for listing ALL files without prefix, pass '' instead
+      .then((result) => {
+        console.log(result);
+        if (result) {
+          setImage(result);
+          console.log(result);
+          console.log(result);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   function PreviewFile(e: ChangeEvent<HTMLInputElement>) {
     const reader = new FileReader();
     const file = e.target.files ? e.target.files[0] : undefined;
@@ -68,19 +75,6 @@ export default function Test() {
       hover:file:bg-secondary-100 file:placeholder-shown:
     "
           ></input>
-          {/* <button
-          onSubmit={(e) => {}}
-          onClick={(e) => {
-            e.preventDefault();
-            setImage("/../public/image_profile.png");
-          }}
-        >
-          <FontAwesomeIcon
-            icon="trash"
-            size="1x"
-            className="text-current text-slate-500"
-          />
-        </button> */}
         </div>
       </div>
       <button onClick={() => sendImage(image as string, "_Foto_0932530199")}>
