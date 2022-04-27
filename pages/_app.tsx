@@ -18,6 +18,7 @@ import {
   tabInitialState,
   TabState,
 } from "../src/context/tabs";
+import Layout from "../components/layout";
 
 const client = createClient({
   url: awsmobile.aws_appsync_graphqlEndpoint,
@@ -76,15 +77,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider value={urqlClient}>
       <SelectedSubTab.Provider value={selectedSubTab}>
         <SelectedTabChanger.Provider value={TabChanger}>
-          <div className="flex flex-col-reverse min-h-screen min-w-screen sm:flex-row bg-gray-100">
-            <Menu />
-            <div
-              id="bodypage"
-              className="flex flex-col flex-1 w-auto h-auto items-center gap-6"
-            >
-              <Component {...pageProps} />
-            </div>
-          </div>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </SelectedTabChanger.Provider>
       </SelectedSubTab.Provider>
     </Provider>

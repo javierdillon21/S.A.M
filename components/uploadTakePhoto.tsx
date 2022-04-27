@@ -8,33 +8,35 @@ import React, {
 } from "react";
 import Input from "./input";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  MemberContextMedia,
-  MemberContextMediaChanger,
-  MemberInitialMediaState,
-} from "../src/context/members";
 
-export default function UploadTakePhoto() {
+import { Storage } from "aws-amplify";
+import { MemberContextMedia } from "./layout";
+import { ConsoleLogger } from "@aws-amplify/core";
+
+export default function UploadTakePhoto(props: {
+  fotoKey: string;
+  mode: "reading" | "creating";
+}) {
   const [image, setImage] = useState<null | ArrayBuffer | string>(
-    "/../public/image_profile.png"
+    "/../public/image_profile.png" //imagen guardada en el buffer para mostrar
   );
 
-  const memberMedia = useContext(MemberContextMedia);
-  const memberMediaUpdater = useContext(MemberContextMediaChanger);
-  console.log(memberMedia);
-  /* VERSION ALTERNA EL HANDLER FILE*/
-  // async function imageHandler(e: ChangeEvent<HTMLInputElement>) {
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     if (reader.readyState === 2) {
-  //       setImage(reader.result);
-  //       if (memberMediaUpdater)
-  //         memberMediaUpdater({ fotografia: reader.result });
-  //     }
-  //   };
-  //   if (e.target.files) reader.readAsDataURL(e.target.files[0]);
-  // }
+  const setFotoinContext = useContext(MemberContextMedia).setFotografia;
+  const mediacontext = useContext(MemberContextMedia).fotografia;
+  console.log(mediacontext);
+  useEffect(() => {
+    if (props.mode === "reading") {
+      Storage.get(props.fotoKey) // buscamos la imagen (archivo) en el bucket de s3
+        .then((result) => {
+          console.log(`foto : ${result}`);
+          setImage(result);
+          if (setFotoinContext) {
+            setFotoinContext(result);
+          }
+        })
+        .catch((err) => console.log(`Error al obtener la foto: ${err}`));
+    }
+  }, []);
 
   function PreviewFile(e: ChangeEvent<HTMLInputElement>) {
     const reader = new FileReader();
@@ -43,8 +45,10 @@ export default function UploadTakePhoto() {
       "load",
       () => {
         setImage(reader.result);
-        if (memberMediaUpdater)
-          memberMediaUpdater({ fotografia: reader.result });
+        if (setFotoinContext) {
+          console.log("estoyaqui");
+          setFotoinContext(reader.result); //Si se selecciona una foto para el miembro, se actualiza el contexto
+        }
       },
       false
     );
@@ -52,7 +56,7 @@ export default function UploadTakePhoto() {
       reader.readAsDataURL(file);
     } else {
       setImage("/../public/image_profile.png");
-      if (memberMediaUpdater) memberMediaUpdater({ fotografia: "noimage" });
+      if (setFotoinContext) setFotoinContext(""); //Si se cancela la carga de la foto, se actuliza el contexto
     }
   }
 
@@ -82,19 +86,6 @@ export default function UploadTakePhoto() {
       hover:file:bg-secondary-100 file:placeholder-shown:
     "
         ></input>
-        {/* <button
-          onSubmit={(e) => {}}
-          onClick={(e) => {
-            e.preventDefault();
-            setImage("/../public/image_profile.png");
-          }}
-        >
-          <FontAwesomeIcon
-            icon="trash"
-            size="1x"
-            className="text-current text-slate-500"
-          />
-        </button> */}
       </div>
     </div>
   );

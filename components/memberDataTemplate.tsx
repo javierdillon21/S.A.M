@@ -31,12 +31,10 @@ import { getMiembro, listMiembros } from "../src/graphql/queries";
 import { GetFormatedDate, IsAMinor } from "../src/utils/date";
 import { useRouter } from "next/router";
 import { listSemillerosEssencial } from "../src/utils/customTypesSAM";
-import {
-  MemberContextMedia,
-  MemberInitialMediaState,
-} from "../src/context/members";
+
 import { Storage } from "aws-amplify";
 import { sendImage } from "../src/utils/storage";
+import { MemberContextMedia } from "./layout";
 
 export default function MemberDataTemplate(props: {
   mode:
@@ -44,16 +42,12 @@ export default function MemberDataTemplate(props: {
     | "creating" /* mode is "reading" for cases in only reading the member's data.
   In this case, it's possible reading, updating or deleting member's data; Is "creating" to create a new member.*/;
 }) {
-  // const [result, reexecuteQuery] = useQuery({
-  //   query: listMiembros,
-  // });
-
-  // console.log(result.data);
   const router = useRouter();
   const miembroID = router.query.id as string;
   const memberfoto = useContext(MemberContextMedia).fotografia;
+  const setFotoinContext = useContext(MemberContextMedia).setFotografia;
   const [readMode, setReadMode] = useState<boolean>(props.mode === "reading"); //readMode == true if reading mode; false if updating mode
-  console.log(memberfoto);
+
   const [resultRetrieveMiembro, reexecuteRetrieveMiembro] = useQuery<
     GetMiembroQuery,
     GetMiembroQueryVariables
@@ -72,6 +66,9 @@ export default function MemberDataTemplate(props: {
       let semilleros = resultRetrieveSemilleros.data?.listSemilleros.items;
 
       if (miembro && semilleros) {
+        if (miembro.foto === "" && setFotoinContext) {
+          setFotoinContext("");
+        }
         setValueMiembro("id", miembro.id);
         setValueMiembro("nombres", miembro.nombres);
         setValueMiembro("apellidos", miembro.apellidos);
@@ -163,6 +160,7 @@ export default function MemberDataTemplate(props: {
     if (props.mode === "creating") {
       crearMiembro({
         input: {
+          foto: memberfoto,
           id: miembroInput.id,
           nombres: miembroInput.nombres,
           apellidos: miembroInput.apellidos,
@@ -200,15 +198,18 @@ export default function MemberDataTemplate(props: {
           createdAt: miembroInput.createdAt,
           registrado_por: miembroInput.registrado_por,
           status: miembroInput.status,
-          semilleroID: miembroInput.semilleroID,
-          equipoID: miembroInput.equipoID,
-          ministerioID: miembroInput.ministerioID,
+          // semilleroID: miembroInput.semilleroID,
+          // equipoID: miembroInput.equipoID,
+          // ministerioID: miembroInput.ministerioID,
           fecha_bautizo: miembroInput.fecha_bautizo,
           //telefono: miembroInput.telefonosPersona.map((t) => t.telefono),
         },
       })
         .then((res) => {
           if (!res.error) {
+            if (memberfoto !== "") {
+              sendImage(memberfoto, `_foto_${miembroInput.id}`);
+            }
             console.log("Member created succesfully");
             alert("Miembro creado con éxito");
             router.push("/members");
@@ -219,11 +220,10 @@ export default function MemberDataTemplate(props: {
         .catch((err) => {
           console.error("Error creating the member:", err);
         });
-
-      sendImage(memberfoto, `_foto_${miembroInput.id}`);
     } else if (props.mode === "reading") {
       actualizarMiembro({
         input: {
+          foto: memberfoto,
           id: miembroInput.id,
           nombres: miembroInput.nombres,
           apellidos: miembroInput.apellidos,
@@ -267,10 +267,13 @@ export default function MemberDataTemplate(props: {
           fecha_bautizo: miembroInput.fecha_bautizo,
         },
       })
-        .then((res) => {
+        .then(async (res) => {
           if (!res.error) {
             console.log("Member updated succesfully");
+            await Storage.remove(`_foto_${miembroID}`);
+            sendImage(memberfoto, `_foto_${miembroInput.id}`);
             alert("Datos actualizados con éxito");
+
             router.push("/members");
           } else {
             console.error("Error updating the member:", res.error);
@@ -280,7 +283,6 @@ export default function MemberDataTemplate(props: {
           console.error("Error updating the member:", err);
         });
     }
-    sendImage(memberfoto, `_foto_${miembroInput.id}`);
   }
   function deleteMiembroHandler() {
     eliminarMiembro({ input: { id: miembroID } }).then((res) => {
@@ -299,7 +301,10 @@ export default function MemberDataTemplate(props: {
       >
         {/* INFORMACIÓN BÁSICA PERSONAL */}
         <div className="flex sm:row-span-3 flex-col h-full justify-around gap-y-5">
-          <UploadTakePhoto></UploadTakePhoto>
+          <UploadTakePhoto
+            fotoKey={`_foto_${miembroID}`}
+            mode={props.mode}
+          ></UploadTakePhoto>
           <span className="flex border-b font-bold text-2xl text-primary-100 justify-between">
             Datos personales
             {/* Only if we are in "reading" mode we'll can edit or delete the member's data  */}

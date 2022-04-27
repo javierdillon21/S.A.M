@@ -15,7 +15,6 @@ export default function Miembros() {
     query: listPreviewMiembros,
   });
   const route = useRouter();
-  console.log(route);
 
   const [searchText, setSearchText] = useState<string>("");
 
@@ -23,7 +22,6 @@ export default function Miembros() {
   console.log(resultPreviewMiembros);
   return (
     <>
-      {" "}
       <Header title_page="Miembros" />
       <section className="flex items-end justify-center gap-2">
         <button className="pb-1 focus:outline-none">

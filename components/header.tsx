@@ -18,7 +18,7 @@ export default function Header(props: {
   const selectedTab = useContext(SelectedSubTab);
 
   return (
-    <div className="flex sticky top-0 flex-col h-24 w-full items-center ">
+    <div className="flex sticky top-0 z-10 flex-col h-24 w-full items-center ">
       <div className="flex h-16 w-full bg-white border-b rounded-b-md">
         <span className="flex text-lg font-medium text-primary-100 sm:w-1/6 sm:border-r items-center px-6">
           {props.title_page}
