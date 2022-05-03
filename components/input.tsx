@@ -133,7 +133,7 @@ export default function Input(props: {
                     <span>Añadir "{inputValue}"</span>
                   )}
                   isDisabled={props.disabled}
-                  style={{ pointerEvents: isReadOnly ? "none" : "auto" }}
+                  // style={{ pointerEvents: isReadOnly ? "none" : "auto" }}
                 />
               </div>
             ) : (

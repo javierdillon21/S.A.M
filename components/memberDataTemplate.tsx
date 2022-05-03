@@ -14,6 +14,8 @@ import {
   Identificacion,
   Jerarquia,
   Jornada,
+  ListMiembrosQuery,
+  ListMiembrosQueryVariables,
   Nacionalidad,
   Parentesco,
   Sexo,
@@ -56,6 +58,12 @@ export default function MemberDataTemplate(props: {
     variables: { id: miembroID },
   });
   // console.log(resultRetrieveMiembro);
+  const [resultListMiembros, reexecuteQueryListMiembros] = useQuery<
+    ListMiembrosQuery,
+    ListMiembrosQueryVariables
+  >({
+    query: listMiembros,
+  });
   const [resultRetrieveSemilleros, reexecuteRetrieveSemilleros] = useQuery({
     query: listSemillerosEssencial,
   });
@@ -66,9 +74,11 @@ export default function MemberDataTemplate(props: {
       let semilleros = resultRetrieveSemilleros.data?.listSemilleros.items;
 
       if (miembro && semilleros) {
-        if (miembro.foto === "" && setFotoinContext) {
-          setFotoinContext("");
+        if (setFotoinContext) {
+          //Sea que el miembro tenga o no foto, seteamos el contexto para leerlo en componente TAKEPHOTO
+          setFotoinContext(miembro.foto);
         }
+        console.log(`la foto es: ${miembro.foto}`);
         setValueMiembro("id", miembro.id);
         setValueMiembro("nombres", miembro.nombres);
         setValueMiembro("apellidos", miembro.apellidos);
@@ -139,6 +149,7 @@ export default function MemberDataTemplate(props: {
     formState: { errors },
   } = useForm<CreateMiembroInput>({
     defaultValues: {
+      foto: "",
       tipo_documento_identidad: Identificacion.CI,
       sexo: null,
       parentesco_invitador: null,
@@ -157,6 +168,14 @@ export default function MemberDataTemplate(props: {
   });
 
   function SubmitMiembro(miembroInput: CreateMiembroInput) {
+    let miembroExistente = resultListMiembros.data?.listMiembros?.items?.filter(
+      (c) => c?.id === miembroInput.id
+    );
+
+    if (miembroExistente)
+      // setErrorGeneral("Ya existe una persona con este número de cedula");
+      console.log("Ya existe un miembro con ese número de cédula");
+
     if (props.mode === "creating") {
       crearMiembro({
         input: {
@@ -270,8 +289,10 @@ export default function MemberDataTemplate(props: {
         .then(async (res) => {
           if (!res.error) {
             console.log("Member updated succesfully");
-            await Storage.remove(`_foto_${miembroID}`);
-            sendImage(memberfoto, `_foto_${miembroInput.id}`);
+            if (memberfoto !== "") {
+              await Storage.remove(`_foto_${miembroID}`);
+              sendImage(memberfoto, `_foto_${miembroInput.id}`);
+            }
             alert("Datos actualizados con éxito");
 
             router.push("/members");
@@ -301,10 +322,8 @@ export default function MemberDataTemplate(props: {
       >
         {/* INFORMACIÓN BÁSICA PERSONAL */}
         <div className="flex sm:row-span-3 flex-col h-full justify-around gap-y-5">
-          <UploadTakePhoto
-            fotoKey={`_foto_${miembroID}`}
-            mode={props.mode}
-          ></UploadTakePhoto>
+          <UploadTakePhoto mode={props.mode}></UploadTakePhoto>
+
           <span className="flex border-b font-bold text-2xl text-primary-100 justify-between">
             Datos personales
             {/* Only if we are in "reading" mode we'll can edit or delete the member's data  */}
