@@ -9,7 +9,6 @@ import { useUser } from "../src/utils/user";
 import { useRouter } from "next/router";
 import { useUrqlClient } from "../src/utils/urql";
 import SpinnerLoading from "../components/spinnerLoading";
-import awsExports from "../src/aws-exports";
 
 import Amplify, { Storage } from "aws-amplify";
 import {
@@ -19,6 +18,7 @@ import {
   TabState,
 } from "../src/context/tabs";
 import Layout from "../components/layout";
+import awsExports from "../src/aws-exports";
 
 // const client = createClient({
 //   url: awsmobile.aws_appsync_graphqlEndpoint,
