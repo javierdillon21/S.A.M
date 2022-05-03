@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import Menu from "../components/menu";
 import { createClient, Provider } from "urql";
-import awsmobile from "../src/aws-exports";
+// import awsmobile from "../src/aws-exports";
 import { useUser } from "../src/utils/user";
 import { useRouter } from "next/router";
 import { useUrqlClient } from "../src/utils/urql";
@@ -20,9 +20,9 @@ import {
 } from "../src/context/tabs";
 import Layout from "../components/layout";
 
-const client = createClient({
-  url: awsmobile.aws_appsync_graphqlEndpoint,
-});
+// const client = createClient({
+//   url: awsmobile.aws_appsync_graphqlEndpoint,
+// });
 
 Amplify.configure(awsExports);
 
