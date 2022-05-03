@@ -7,11 +7,11 @@
  * Also supoorts event props as `onClick`.
  * */
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import { config } from '@fortawesome/fontawesome-svg-core'
+import { config, IconPack } from '@fortawesome/fontawesome-svg-core'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-library.add(fas,fab)
+library.add(fas as IconPack, fab as IconPack)
 
 config.autoAddCss = false // Tell Font Awesome to skip adding the CSS automatically since it's being imported above

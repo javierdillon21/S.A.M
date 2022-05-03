@@ -2,7 +2,7 @@ import { Storage } from "aws-amplify";
 import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import Input from "../components/input";
 import UploadTakePhoto from "../components/uploadTakePhoto";
-import { MemberContextMedia } from "../src/context/members";
+
 import { GetFormatedDate } from "../src/utils/date";
 import Image from "next/image";
 import { sendImage } from "../src/utils/storage";

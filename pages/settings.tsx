@@ -120,19 +120,20 @@ export default function Settings() {
     console.log((archivo as RegistroExcelMiembro[])[0]);
   }
 
-  function UploadMiembrosfromArray(input: CreateMiembroInput) {
-    crearMiembro({
-      input: {
-        id: input.id,
-        nombres: input.nombres,
-        apellidos: input.apellidos,
-        seudonimo: input.seudonimo,
-        sexo: input.sexo,
-        fecha_nacimiento: GetFormatedDate(Number(input.fecha_nacimiento)),
-        nacionalidad: input.nacionalidad,
-      },
-    });
-  }
+  // function UploadMiembrosfromArray(input: CreateMiembroInput) {
+  //   crearMiembro({
+  //     input: {
+
+  //       id: input.id,
+  //       nombres: input.nombres,
+  //       apellidos: input.apellidos,
+  //       seudonimo: input.seudonimo,
+  //       sexo: input.sexo,
+  //       fecha_nacimiento: GetFormatedDate(Number(input.fecha_nacimiento)),
+  //       nacionalidad: input.nacionalidad,
+  //     },
+  //   });
+  // }
 
   function SubmitMinisterio(input: CreateMinisterioInput) {
     crearMinisterio({

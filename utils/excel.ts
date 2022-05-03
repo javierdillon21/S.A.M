@@ -1,4 +1,5 @@
 import XLSX from 'xlsx'
+import { RegistroExcelMiembro } from '../src/data'
 
 export function saveToExcel(
   data: (string | number|boolean)[][],
