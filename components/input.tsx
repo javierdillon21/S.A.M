@@ -130,7 +130,7 @@ export default function Input(props: {
                     !props.readOnly && Boolean(props.isReactSelectSearchable)
                   }
                   formatCreateLabel={(inputValue) => (
-                    <span>Añadir "{inputValue}"</span>
+                    <span>Añadir {inputValue}</span>
                   )}
                   isDisabled={props.disabled}
                   // style={{ pointerEvents: isReadOnly ? "none" : "auto" }}
