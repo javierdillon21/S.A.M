@@ -19,6 +19,7 @@ export const onCreateMiembro = /* GraphQL */ `
       direccion
       correo
       estado_civil
+      sit_sentimental
       numero_hijos
       nombre_conyuge
       ocupacion_laboral
@@ -53,6 +54,7 @@ export const onCreateMiembro = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -87,6 +89,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -144,6 +147,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -244,6 +248,7 @@ export const onCreateMiembro = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -278,6 +283,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -335,6 +341,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -426,6 +433,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -482,6 +490,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -546,6 +555,7 @@ export const onCreateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -600,6 +610,7 @@ export const onUpdateMiembro = /* GraphQL */ `
       direccion
       correo
       estado_civil
+      sit_sentimental
       numero_hijos
       nombre_conyuge
       ocupacion_laboral
@@ -634,6 +645,7 @@ export const onUpdateMiembro = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -668,6 +680,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -725,6 +738,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -825,6 +839,7 @@ export const onUpdateMiembro = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -859,6 +874,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -916,6 +932,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1007,6 +1024,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1063,6 +1081,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1127,6 +1146,7 @@ export const onUpdateMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1181,6 +1201,7 @@ export const onDeleteMiembro = /* GraphQL */ `
       direccion
       correo
       estado_civil
+      sit_sentimental
       numero_hijos
       nombre_conyuge
       ocupacion_laboral
@@ -1215,6 +1236,7 @@ export const onDeleteMiembro = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -1249,6 +1271,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1306,6 +1329,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1406,6 +1430,7 @@ export const onDeleteMiembro = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -1440,6 +1465,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1497,6 +1523,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1588,6 +1615,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1644,6 +1672,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1708,6 +1737,7 @@ export const onDeleteMiembro = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1766,6 +1796,7 @@ export const onCreateAsistencia = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -1800,6 +1831,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1857,6 +1889,7 @@ export const onCreateAsistencia = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -1956,6 +1989,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -1990,6 +2024,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2047,6 +2082,7 @@ export const onUpdateAsistencia = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2146,6 +2182,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -2180,6 +2217,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2237,6 +2275,7 @@ export const onDeleteAsistencia = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2448,6 +2487,7 @@ export const onCreateServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2496,6 +2536,7 @@ export const onCreateServicio = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -2530,6 +2571,7 @@ export const onCreateServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2587,6 +2629,7 @@ export const onCreateServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2696,6 +2739,7 @@ export const onUpdateServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2744,6 +2788,7 @@ export const onUpdateServicio = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -2778,6 +2823,7 @@ export const onUpdateServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2835,6 +2881,7 @@ export const onUpdateServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2944,6 +2991,7 @@ export const onDeleteServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -2992,6 +3040,7 @@ export const onDeleteServicio = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -3026,6 +3075,7 @@ export const onDeleteServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3083,6 +3133,7 @@ export const onDeleteServicio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3192,6 +3243,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3240,6 +3292,7 @@ export const onCreateMinisterio = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -3274,6 +3327,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3331,6 +3385,7 @@ export const onCreateMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3425,6 +3480,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3473,6 +3529,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -3507,6 +3564,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3564,6 +3622,7 @@ export const onUpdateMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3658,6 +3717,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3706,6 +3766,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -3740,6 +3801,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3797,6 +3859,7 @@ export const onDeleteMinisterio = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3894,6 +3957,7 @@ export const onCreateEquipo = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -3928,6 +3992,7 @@ export const onCreateEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -3985,6 +4050,7 @@ export const onCreateEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4059,6 +4125,7 @@ export const onCreateEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4142,6 +4209,7 @@ export const onUpdateEquipo = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -4176,6 +4244,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4233,6 +4302,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4307,6 +4377,7 @@ export const onUpdateEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4390,6 +4461,7 @@ export const onDeleteEquipo = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -4424,6 +4496,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4481,6 +4554,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4555,6 +4629,7 @@ export const onDeleteEquipo = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4629,6 +4704,7 @@ export const onCreateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4683,6 +4759,7 @@ export const onCreateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4737,6 +4814,7 @@ export const onCreateSemillero = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -4771,6 +4849,7 @@ export const onCreateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4828,6 +4907,7 @@ export const onCreateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4916,6 +4996,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -4970,6 +5051,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -5024,6 +5106,7 @@ export const onUpdateSemillero = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -5058,6 +5141,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -5115,6 +5199,7 @@ export const onUpdateSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -5203,6 +5288,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -5257,6 +5343,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -5311,6 +5398,7 @@ export const onDeleteSemillero = /* GraphQL */ `
         direccion
         correo
         estado_civil
+        sit_sentimental
         numero_hijos
         nombre_conyuge
         ocupacion_laboral
@@ -5345,6 +5433,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral
@@ -5402,6 +5491,7 @@ export const onDeleteSemillero = /* GraphQL */ `
           direccion
           correo
           estado_civil
+          sit_sentimental
           numero_hijos
           nombre_conyuge
           ocupacion_laboral

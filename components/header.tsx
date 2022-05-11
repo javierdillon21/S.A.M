@@ -50,7 +50,7 @@ export default function Header(props: {
                     selectedTab.indexTab === i
                       ? "border-b-2 border-b-secondary-50 text-secondary-100"
                       : ""
-                  } hover:border-b-2 hover:border-b-secondary-50 font-bold hover:text-secondary-100 items-center px-3`}
+                  } hover:border-b-2 hover:border-b-secondary-50 font-normal hover:text-secondary-100 items-center px-3`}
                 >
                   {tab.name}
                 </p>

@@ -19,6 +19,7 @@ type Miembro
   direccion: String
   correo: String
   estado_civil: Civil
+  sit_sentimental: Sentimental #Define la realidad amorosa de la persona, no es lo mismo que el estado legal civil.
   numero_hijos: Int
   nombre_conyuge: String
   ocupacion_laboral: String #profesional o no profesional
@@ -138,6 +139,15 @@ enum Civil {
   VIUDO
   UNION_LIBRE
 }
+enum Sentimental {
+  SOLTERO
+  CASADO
+  DIVORCIADO
+  VIUDO
+  UNION_LIBRE
+  M_SOLTERA
+  SEPARADO
+}
 enum Parentesco {
   PADRE
   MADRE
@@ -206,6 +216,8 @@ enum Jerarquia {
   ADMINISTRADOR #Servidor encargado de un equipo de semilleros
   MAYORDOMO #Servidor encargado de un ministerio
   ASISTENTE #Miembro de la congregación que no es servidor. Status(asignado, visitante, ganado, activo, no consolidado, fuera de alcance, transferido)
+  MAYORDOMO_SEMBRADOR
+  SEMBRADOR_OBRERO
 }
 
 enum Identificacion { #tipo de documento de identidad

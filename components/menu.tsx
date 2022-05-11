@@ -15,36 +15,46 @@ export default function Menu() {
         sm:grid-cols-1 sm:h-64 sm:w-4/5 items-center justify-items-center sm:gap-2"
       >
         <Link href={"/members"}>
+          <span className="flex items-center justify-center h-10 w-10 rounded-sm border border-primary-100 active:text-primary-100 active:bg-gray-200 hover:border-gray-200">
+            <FontAwesomeIcon
+              icon="users"
+              size="lg"
+              className="text-current scale-110"
+            />
+          </span>
+        </Link>
+        <span className="flex items-center justify-center h-10 w-10 rounded-sm border border-primary-100 active:text-primary-100 active:bg-gray-200 hover:border-gray-200">
           <FontAwesomeIcon
-            icon="users"
+            icon="clipboard-list"
             size="lg"
             className="text-current scale-110"
           />
-        </Link>
-        <FontAwesomeIcon
-          icon="clipboard-list"
-          size="lg"
-          className="text-current scale-110"
-        />
+        </span>
         <Link href={"/calendar"}>
+          <span className="flex items-center justify-center h-10 w-10 rounded-sm border border-primary-100 active:text-primary-100 active:bg-gray-200 hover:border-gray-200">
+            <FontAwesomeIcon
+              icon="calendar-alt"
+              size="lg"
+              className="text-current scale-110"
+            />
+          </span>
+        </Link>
+        <span className="flex items-center justify-center h-10 w-10 rounded-sm border border-primary-100 active:text-primary-100 active:bg-gray-200 hover:border-gray-200">
           <FontAwesomeIcon
-            icon="calendar-alt"
+            icon="chart-pie"
             size="lg"
             className="text-current scale-110"
           />
-        </Link>
-        <FontAwesomeIcon
-          icon="chart-pie"
-          size="lg"
-          className="text-current scale-110"
-        />
+        </span>
 
         <Link href={"/settings"}>
-          <FontAwesomeIcon
-            icon="cogs"
-            size="lg"
-            className="text-current scale-110"
-          />
+          <span className="flex items-center justify-center h-10 w-10 rounded-sm border border-primary-100 active:text-primary-100 active:bg-gray-200 hover:border-gray-200">
+            <FontAwesomeIcon
+              icon="cogs"
+              size="lg"
+              className="text-current scale-110"
+            />
+          </span>
         </Link>
       </div>
       <span className="hidden sm:flex sm:flex-1 sm:w-4/5 sm:items-center sm:justify-center sm:py-3">

@@ -120,20 +120,54 @@ export default function Settings() {
     console.log((archivo as RegistroExcelMiembro[])[0]);
   }
 
-  // function UploadMiembrosfromArray(input: CreateMiembroInput) {
-  //   crearMiembro({
-  //     input: {
-
-  //       id: input.id,
-  //       nombres: input.nombres,
-  //       apellidos: input.apellidos,
-  //       seudonimo: input.seudonimo,
-  //       sexo: input.sexo,
-  //       fecha_nacimiento: GetFormatedDate(Number(input.fecha_nacimiento)),
-  //       nacionalidad: input.nacionalidad,
-  //     },
-  //   });
-  // }
+  function UploadMiembrosfromArray(input: CreateMiembroInput) {
+    crearMiembro({
+      input: {
+        id: input.id,
+        foto: "",
+        tipo_documento_identidad: input.tipo_documento_identidad,
+        titulo_profesional: input.titulo_profesional,
+        nombres: input.nombres,
+        apellidos: input.apellidos,
+        seudonimo: input.seudonimo,
+        sexo: input.sexo,
+        fecha_nacimiento: GetFormatedDate(Number(input.fecha_nacimiento)),
+        nacionalidad: input.nacionalidad,
+        direccion: input.direccion,
+        correo: input.correo,
+        estado_civil: input.estado_civil,
+        numero_hijos: input.numero_hijos,
+        nombre_conyuge: input.nombre_conyuge,
+        ocupacion_laboral: input.ocupacion_laboral,
+        lugar_trabajo: input.lugar_trabajo,
+        tiempo_libre: input.tiempo_libre,
+        numero_hermanos: input.numero_hermanos,
+        representanteID: input.representanteID,
+        parentesco_representante: input.parentesco_representante,
+        lugar_estudio: input.lugar_estudio,
+        jornada_academica: input.jornada_academica,
+        nivel_academico_actual: input.nivel_academico_actual,
+        telefono_celular: input.telefono_celular,
+        telefono_convencional: input.telefono_convencional,
+        whatsapp: input.whatsapp,
+        nombre_padre: input.nombre_padre,
+        nombre_madre: input.nombre_madre,
+        vive_con: input.vive_con,
+        invitadorID: input.invitadorID,
+        parentesco_invitador: input.parentesco_invitador,
+        fecha_bautizo: input.fecha_bautizo,
+        createdAt: input.createdAt,
+        registrado_por: input.registrado_por,
+        status: input.status,
+        jerarquia: input.jerarquia,
+        semilleroID: input.semilleroID,
+        equipoID: input.equipoID,
+        ministerioID: input.ministerioID,
+        cargo_trabajo: input.cargo_trabajo,
+        ciudad_residencia: input.ciudad_residencia,
+      },
+    });
+  }
 
   function SubmitMinisterio(input: CreateMinisterioInput) {
     crearMinisterio({

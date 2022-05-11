@@ -664,6 +664,17 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+          "name" : "sit_sentimental",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "Sentimental",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "numero_hijos",
           "description" : null,
           "args" : [ ],
@@ -1345,6 +1356,50 @@
         } ],
         "possibleTypes" : null
       }, {
+        "kind" : "ENUM",
+        "name" : "Sentimental",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "SOLTERO",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "CASADO",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "DIVORCIADO",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "VIUDO",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "UNION_LIBRE",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "M_SOLTERA",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "SEPARADO",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "possibleTypes" : null
+      }, {
         "kind" : "SCALAR",
         "name" : "Int",
         "description" : "Built-in Int",
@@ -1682,6 +1737,16 @@
           "deprecationReason" : null
         }, {
           "name" : "ASISTENTE",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "MAYORDOMO_SEMBRADOR",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "SEMBRADOR_OBRERO",
           "description" : null,
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -2954,6 +3019,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "sit_sentimental",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelSentimentalInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "numero_hijos",
           "description" : null,
           "type" : {
@@ -3475,6 +3549,33 @@
           "type" : {
             "kind" : "ENUM",
             "name" : "Civil",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelSentimentalInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "Sentimental",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "Sentimental",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5496,6 +5597,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "sit_sentimental",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "Sentimental",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "numero_hijos",
           "description" : null,
           "type" : {
@@ -5870,6 +5980,15 @@
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelCivilInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "sit_sentimental",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelSentimentalInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -6296,6 +6415,15 @@
           "type" : {
             "kind" : "ENUM",
             "name" : "Civil",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "sit_sentimental",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "Sentimental",
             "ofType" : null
           },
           "defaultValue" : null
@@ -8900,6 +9028,23 @@
         "onFragment" : false,
         "onField" : false
       }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
         "name" : "aws_iam",
         "description" : "Tells the service this field/object has access authorized by sigv4 signing.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
@@ -8970,23 +9115,6 @@
         "description" : "Tells the service this field/object has access authorized by a Lambda Authorizer.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
         "args" : [ ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
-        } ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
