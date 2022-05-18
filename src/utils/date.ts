@@ -3,13 +3,18 @@ import { getFontDefinitionFromManifest } from "next/dist/server/font-utils"
 
 /* parámetro "date": milisegundos transcurridos desde las 00:00:00 UTC del 1 de 
 enero de 1970 (Date.getTime) justo hasta ahora. Si es undefined, se retorna la fecha de hoy 'YYYY-MM-DD'*/
-export function GetFormatedDate(date?: number | null|string){
+export function GetFormatedDate(date?: number | null|string, toGMTString?:boolean){
     if(!date){
         const today= new Date().toLocaleDateString('en-GB')
         const dateFormated= `${today.substring(6)}-${today.substring(3,5)}-${today.substring(0,2)}`
         return dateFormated
     }
     else{
+        if(toGMTString==true && date.valueOf()=='string'){
+            const input= new Date(date).toUTCString()
+            const dateFormated= new Date(input).toJSON().substring(0,10)
+            return dateFormated
+        }
         const input= new Date(date).toLocaleDateString('en-GB')
         const dateFormated = `${input.substring(6)}-${input.substring(3,5)}-${input.substring(0,2)}`
         return dateFormated

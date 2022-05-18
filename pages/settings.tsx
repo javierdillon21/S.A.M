@@ -34,7 +34,6 @@ import {
   CreateSemilleroInput,
   CreateSemilleroMutation,
   CreateSemilleroMutationVariables,
-  Sexo,
 } from "../src/API";
 import { useForm } from "react-hook-form";
 import Input from "../components/input";
@@ -53,7 +52,7 @@ export default function Settings() {
   const [archivo, setArchivo] = useState<
     null | XLSX.WorkBook | undefined | RegistroExcelMiembro[]
   >();
-
+  const [run, setrun] = useState(false);
   const [resultMinisteriosByNombre, reexecuteMinisteriosByNombre] = useQuery({
     query: listMinisteriosByNombre,
   });
@@ -110,65 +109,87 @@ export default function Settings() {
       f = files?.item(0);
     var reader = new FileReader();
     reader.onload = function (e: ProgressEvent<FileReader>) {
-      var workbook = XLSX.read(e.target?.result);
+      var workbook = XLSX.read(e.target?.result, {
+        cellText: false,
+        cellDates: true,
+      });
       //setArchivo(workbook);
       workbookToJSON(workbook).then((res) => setArchivo(res));
     };
     reader.readAsArrayBuffer(f as File);
   }
-  if (archivo) {
-    console.log((archivo as RegistroExcelMiembro[])[0]);
-  }
 
-  function UploadMiembrosfromArray(input: CreateMiembroInput) {
-    crearMiembro({
-      input: {
-        id: input.id,
-        foto: "",
-        tipo_documento_identidad: input.tipo_documento_identidad,
-        titulo_profesional: input.titulo_profesional,
-        nombres: input.nombres,
-        apellidos: input.apellidos,
-        seudonimo: input.seudonimo,
-        sexo: input.sexo,
-        fecha_nacimiento: GetFormatedDate(Number(input.fecha_nacimiento)),
-        nacionalidad: input.nacionalidad,
-        direccion: input.direccion,
-        correo: input.correo,
-        estado_civil: input.estado_civil,
-        numero_hijos: input.numero_hijos,
-        nombre_conyuge: input.nombre_conyuge,
-        ocupacion_laboral: input.ocupacion_laboral,
-        lugar_trabajo: input.lugar_trabajo,
-        tiempo_libre: input.tiempo_libre,
-        numero_hermanos: input.numero_hermanos,
-        representanteID: input.representanteID,
-        parentesco_representante: input.parentesco_representante,
-        lugar_estudio: input.lugar_estudio,
-        jornada_academica: input.jornada_academica,
-        nivel_academico_actual: input.nivel_academico_actual,
-        telefono_celular: input.telefono_celular,
-        telefono_convencional: input.telefono_convencional,
-        whatsapp: input.whatsapp,
-        nombre_padre: input.nombre_padre,
-        nombre_madre: input.nombre_madre,
-        vive_con: input.vive_con,
-        invitadorID: input.invitadorID,
-        parentesco_invitador: input.parentesco_invitador,
-        fecha_bautizo: input.fecha_bautizo,
-        createdAt: input.createdAt,
-        registrado_por: input.registrado_por,
-        status: input.status,
-        jerarquia: input.jerarquia,
-        semilleroID: input.semilleroID,
-        equipoID: input.equipoID,
-        ministerioID: input.ministerioID,
-        cargo_trabajo: input.cargo_trabajo,
-        ciudad_residencia: input.ciudad_residencia,
-      },
-    });
+  async function UploadMiembrosfromArray(input: RegistroExcelMiembro[]) {
+    if (input) {
+      console.log("entro");
+      input.map((registro) => {
+        console.log("registro:", registro);
+        crearMiembro({
+          input: {
+            id: registro.IDENTIFICACION,
+            foto: "",
+            tipo_documento_identidad: registro.TIPO_DOCUMENTO,
+            //titulo_profesional
+            nombres: registro.NOMBRES,
+            apellidos: registro.APELLIDOS,
+            seudonimo: registro.SEUDONIMO,
+            sexo: registro.SEXO,
+            fecha_nacimiento: GetFormatedDate(registro.F_NACIMIENTO, true),
+            nacionalidad: registro.NACIONALIDAD,
+            direccion: registro.DIRECCION,
+            correo: registro.CORREO,
+            estado_civil: registro.EST_CIVIL,
+            numero_hijos: registro.N_HIJOS,
+            nombre_conyuge: registro.CONYUGE,
+            //ocupacion_laboral
+            lugar_trabajo: registro.LUGAR_TRABAJO,
+            tiempo_libre: registro.TIEMPO_LIBRE,
+            numero_hermanos: registro.N_HERM,
+            representanteID: registro.REPRESENT_LEGAL,
+            //parentesco_representante: registro.parentesco_representante,
+            lugar_estudio: registro.LUGAR_ESTUDIO,
+            //jornada_academica: registro
+            nivel_academico_actual: registro.ANO_CURSA,
+            telefono_celular: registro.WHATSAPP,
+            //telefono_convencional,
+            whatsapp: registro.WHATSAPP,
+            //nombre_padre: registro,
+            //nombre_madre: registro.nombre_madre,
+            //vive_con: registro.vive_con,
+            invitadorID: registro.INVITADO_POR_CEDULA,
+            parentesco_invitador: registro.PARENTESCO,
+            //fecha_bautizo: GetFormatedDate(registro),
+            createdAt: GetFormatedDate(registro.FECHA_DE_INGRESO, true),
+            registrado_por: registro.FICHA_LLENADA_POR,
+            status: registro.STATUS,
+            jerarquia: registro.POSICION,
+            semilleroID: registro.SEMILLERO,
+            equipoID: registro.EQUIPO,
+            ministerioID: registro.MINISTERIO,
+            cargo_trabajo: registro.CARGO_TRABAJO,
+            //ciudad_residencia: input.,
+          },
+        })
+          .then((res) => {
+            console.log(res);
+            if (!res.error) {
+              console.log("Member created succesfully");
+              //alert("Miembro creado con éxito");
+            }
+          })
+          .catch((err) => {
+            console.error("Error creating the member:", err);
+          });
+      });
+    }
   }
+  // if (run) UploadMiembrosfromArray(archivo as RegistroExcelMiembro[]);
 
+  if (archivo)
+    console.log(
+      "archivo:",
+      GetFormatedDate((archivo as RegistroExcelMiembro[])[0].F_NACIMIENTO, true)
+    );
   function SubmitMinisterio(input: CreateMinisterioInput) {
     crearMinisterio({
       input: {
@@ -208,7 +229,11 @@ export default function Settings() {
         <input type="file" onChange={(e) => handleFile(e)} />
         <div>
           <button
-          // onClick={() => SubirMiembros(archivo as RegistroExcelMiembro[])}
+            className="flex border p-2 border-gray-300 "
+            onClick={() => {
+              UploadMiembrosfromArray(archivo as RegistroExcelMiembro[]);
+              // setrun(true);
+            }}
           >
             Subir Miembros
           </button>

@@ -6,20 +6,20 @@ type Miembro
   id: ID!
   foto: String
   # --- Añadidos recientemente
-  tipo_documento_identidad: Identificacion! #CI - VISA - PASAPORTE
+  tipo_documento_identidad: String! #CI - VISA - PASAPORTE
   titulo_profesional: String #título de tercer nivel
   # ----
   nombres: String!
   apellidos: String!
   seudonimo: String
-  sexo: Sexo
+  sexo: String!
   fecha_nacimiento: String
-  nacionalidad: Nacionalidad
+  nacionalidad: String
   ciudad_residencia: String
   direccion: String
   correo: String
-  estado_civil: Civil
-  sit_sentimental: Sentimental #Define la realidad amorosa de la persona, no es lo mismo que el estado legal civil.
+  estado_civil: String
+  sit_sentimental: String #Define la realidad amorosa de la persona, no es lo mismo que el estado legal civil.
   numero_hijos: Int
   nombre_conyuge: String
   ocupacion_laboral: String #profesional o no profesional
@@ -28,10 +28,10 @@ type Miembro
   tiempo_libre: String
   numero_hermanos: Int
   representanteID: ID
-  parentesco_representante: Parentesco #relación con el representante
+  parentesco_representante: String #relación con el representante
   lugar_estudio: String
-  jornada_academica: Jornada
-  nivel_academico_actual: Academico #nivel académico en curso
+  jornada_academica: String
+  nivel_academico_actual: String #nivel académico en curso
   telefono_convencional: String
   telefono_celular: String
   whatsapp: String
@@ -40,12 +40,12 @@ type Miembro
   vive_con: String
   invitadorID: ID
   invitado_por: Miembro @connection(fields: ["invitadorID"])
-  parentesco_invitador: Parentesco
+  parentesco_invitador: String
   fecha_bautizo: String
   createdAt: AWSDate #Fecha de memebresía
   registrado_por: String
-  status: Status
-  jerarquia: Jerarquia
+  status: String
+  jerarquia: String
   asistencias: [Asistencia] @connection(keyName: "byMiembro", fields: ["id"])
   servicios: [Servicio] @connection(keyName: "byMiembro", fields: ["id"])
   representante: Miembro @connection(fields: ["representanteID"]) #miembro de la iglesia que lo representa
@@ -72,7 +72,7 @@ type Reunion @model @key(name: "byEquipo", fields: ["caracter"]) {
   asistencia: [Asistencia] @connection(keyName: "byReunion", fields: ["id"])
   servidores: [Servicio]
     @connection(keyName: "servicioByReunion", fields: ["id"])
-  caracter: Caracter
+  caracter: String
   horario: String
   fecha: String
   lugar: String
@@ -102,7 +102,7 @@ type Equipo @model @key(fields: ["nombre"]) {
   nombre: ID!
   semilleros: [Semillero] @connection(keyName: "byEquipo", fields: ["nombre"])
   administradorID: ID
-  caracter: Caracter
+  caracter: String
   administrador: Miembro @connection(fields: ["administradorID"])
   miembros: [Miembro] @connection(keyName: "byEquipo", fields: ["nombre"])
   reuniones: [Reunion] @connection(keyName: "byEquipo", fields: ["caracter"])
@@ -118,133 +118,4 @@ type Semillero @model @key(name: "byEquipo", fields: ["id"]) {
   miembros: [Miembro] @connection(keyName: "bySemillero", fields: ["id"])
   equipo: Equipo @connection(fields: ["equipoID"])
   administrador: Miembro @connection(fields: ["administradorID"])
-}
-
-enum Sexo {
-  MASCULINO
-  FEMENINO
-}
-
-#Naturaleza de una Reunión
-enum Caracter {
-  ADMINISTRATIVO #Reuniones de planificación de Equipos/Clubes bíblicos
-  CORPORATIVO #Reuniones de planificación general / planificacion eclesial
-  GENERAL #Cultos generales
-  PARTICULAR #Semilleros
-}
-enum Civil {
-  SOLTERO
-  CASADO
-  DIVORCIADO
-  VIUDO
-  UNION_LIBRE
-}
-enum Sentimental {
-  SOLTERO
-  CASADO
-  DIVORCIADO
-  VIUDO
-  UNION_LIBRE
-  M_SOLTERA
-  SEPARADO
-}
-enum Parentesco {
-  PADRE
-  MADRE
-  HIJO_A
-  HERMANO_A
-  ABUELO_A
-  TIO_A
-  PRIMO_A
-  AMIGO_A
-  CONOCIDO_A
-  PAREJA
-}
-
-enum Jornada {
-  ESTUDIANTIL_MATUTINA
-  ESTUDIANTIL_VESPERTINA
-  ESTUDIANTIL_NOCTURNA
-  LABORAL_TRADICIONAL
-}
-
-enum Academico {
-  PRIMER_GRADO_EGB
-  SEGUNDO_GRADO_EGB
-  TERCER_GRADO_EGB
-  CUARTO_GRADO_EGB
-  QUINTO_GRADO_EGB
-  SEXTO_GRADO_EGB
-  SEPTIMO_GRADO_EGB
-  OCTAVO_GRADO_EGB
-  NOVENO_GRADO_EGB
-  DECIMO_GRADO_EGB
-  PRIMERO_BGU
-  SEGUNDO_BGU
-  TERCERO_BGU
-  PRIMER_SEMESTRE
-  SEGUNDO_SEMESTRE
-  TERCER_SEMESTRE
-  CUARTO_SEMESTRE
-  QUINTO_SEMESTRE
-  SEXTO_SEMESTRE
-  SEPTIMO_SEMESTRE
-  OCTAVO_SEMESTRE
-  NOVENO_SEMESTRE
-  DECIMO_SEMESTRE
-  ONCEAVO_SEMESTRE
-  DOCEAVO_SEMESTRE
-  TRECEAVO_SEMESTRE
-  CATORCEAVO_SEMESTRE
-}
-
-enum Status {
-  ASIGNADO
-  VISITANTE
-  GANADO
-  ACTIVO # ASISTENTE ACTIVO; SERVIDOR ACTIVO
-  NO_CONSOLIDADO
-  FUERA_DE_ALCANCE
-  TRANSFERIDO #miembro que pasa asignado de uno a otro semillero. Status que aparece en la UI del nuevo sembrador
-  SUSPENDIDO
-}
-enum Jerarquia {
-  PASTOR
-  ASPIRANTE #Asistente aspirante a OBRERO
-  SEMBRADOR #Servidor encargado de un semillero
-  OBRERO #Servidor de la congregación que no es ADMINISTRADOR NI MAYORDOMO
-  ADMINISTRADOR #Servidor encargado de un equipo de semilleros
-  MAYORDOMO #Servidor encargado de un ministerio
-  ASISTENTE #Miembro de la congregación que no es servidor. Status(asignado, visitante, ganado, activo, no consolidado, fuera de alcance, transferido)
-  MAYORDOMO_SEMBRADOR
-  SEMBRADOR_OBRERO
-}
-
-enum Identificacion { #tipo de documento de identidad
-  CI
-  VISA
-  PASAPORTE
-}
-
-enum Nacionalidad {
-  ARGENTINA
-  BOLIVIANA
-  CHILENA
-  COLOMBIANA
-  COSTARRICENSE
-  CUBANA
-  DOMINICANA
-  ECUATORIANA
-  ESTADOUNIDENSE
-  GUATEMALTECA
-  HONDURENA
-  MEXICANA
-  NICARAGUENSE
-  PANAMENA
-  PARAGUAYA
-  PUERTORRIQUENA
-  PERUANA
-  SALVADORENA
-  URUGUAYA
-  VENEZOLANA
 }

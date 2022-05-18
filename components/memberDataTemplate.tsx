@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "urql";
 import {
-  Academico,
-  Civil,
   CreateMiembroInput,
   CreateMiembroMutation,
   CreateMiembroMutationVariables,
@@ -11,15 +9,8 @@ import {
   DeleteMiembroMutationVariables,
   GetMiembroQuery,
   GetMiembroQueryVariables,
-  Identificacion,
-  Jerarquia,
-  Jornada,
   ListMiembrosQuery,
   ListMiembrosQueryVariables,
-  Nacionalidad,
-  Parentesco,
-  Sexo,
-  Status,
 } from "../src/API";
 import {
   createMiembro,
@@ -37,6 +28,17 @@ import { listSemillerosEssencial } from "../src/utils/customTypesSAM";
 import { Storage } from "aws-amplify";
 import { sendImage } from "../src/utils/storage";
 import { MemberContextMedia } from "./layout";
+import {
+  Academico,
+  Civil,
+  Identificacion,
+  Jerarquia,
+  Jornada,
+  Nacionalidad,
+  Parentesco,
+  Sexo,
+  Status,
+} from "../src/utils/customTypesSAM";
 
 export default function MemberDataTemplate(props: {
   mode:
@@ -151,7 +153,7 @@ export default function MemberDataTemplate(props: {
     defaultValues: {
       foto: "",
       tipo_documento_identidad: Identificacion.CI,
-      sexo: null,
+      sexo: undefined,
       parentesco_invitador: null,
       parentesco_representante: null,
       jornada_academica: null,

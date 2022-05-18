@@ -35,7 +35,7 @@ var desired_cell = worksheet[address_of_cell];
 
 /* Get the value */
 var desired_value = (desired_cell ? desired_cell.v : undefined);
-var arrWS: RegistroExcelMiembro[]= XLSX.utils.sheet_to_json(worksheet)
+var arrWS: RegistroExcelMiembro[]= XLSX.utils.sheet_to_json(worksheet,{dateNF:'yyyy-mm-dd'})
 return(arrWS)
 }
  

@@ -1,4 +1,7 @@
 
+
+  
+
 interface Equipo{
     nombre: string
     administradorID?: string
@@ -97,41 +100,38 @@ interface Reunion{
 }
 
 interface RegistroExcelMiembro{
-    N?: number
-    FECHA_DE_ACTUALIZACION?: number
-    NOMBRES?: string
-    APELLIDOS?: string
-    FECHA_DE_NACIMIENTO?: number
-    EDAD?: number
-    EST_CIVIL?: string
-    SEXO?: string
-    NACIONALIDAD?: string
-    ID?: number
+    NOMBRES: string
+    APELLIDOS: string
+    F_NACIMIENTO?: number
+    EST_CIVIL:  Civil
+    SIT_SENTIM: Sentimental
+    SEXO: Sexo
+    NACIONALIDAD:Nacionalidad
+    TIPO_DOCUMENTO: Identificacion
+    IDENTIFICACION?: string
     DIRECCION?: string
-    INVITADO_POR?: string
-    PARENTESCO?: string
-    CASA?: number
-    WHATSAPP?: number
+    TIEMPO_LIBRE: string
+    INVITADO_POR_CEDULA?: string
+    PARENTESCO: Parentesco
+    WHATSAPP?: string
     CORREO?: string
-    LUGAR_DE_TRABAJO?: string
-    CARGO_QUE_DESEMPEÑA?: string
-    LUGAR_DE_ESTUDIO?: string
-    ANO_QUE_CURSA?: string
-    HIJOS?: number
+    LUGAR_TRABAJO?: string
+    CARGO_TRABAJO?: string
+    LUGAR_ESTUDIO?: string
+    ANO_CURSA: Academico
+    N_HIJOS?: number
     CONYUGE?: string
-    HERM?: number
+    REPRESENT_LEGAL?: string
+    N_HERM?: number
     FICHA_LLENADA_POR?: string
-    FECHA_DE_INGRESO?: number
+    FECHA_DE_INGRESO: string
     MINISTERIO?: string
-    OCUPACION?: string
-    GRUPO?: string
+    POSICION: Jerarquia
     EQUIPO?: string
     SEMILLERO?: string
-    PASADO_AL_DRIVE_POR?: string
-    STATUS?: string
+    STATUS: Status
     SEUDONIMO?: string
-    ESTADO?: string
-    ACTUALIZ_DRIVE?: number
+    F_ACTUALIZACION?: number
     OBSERVACION?: string
 }
 

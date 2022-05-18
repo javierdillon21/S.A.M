@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -58,11 +59,18 @@ export default function Menu() {
         </Link>
       </div>
       <span className="hidden sm:flex sm:flex-1 sm:w-4/5 sm:items-center sm:justify-center sm:py-3">
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon="question-circle"
           size="lg"
           className="text-current self-end"
-        />
+        /> */}
+        {/* <Image
+          src={"/LOGO SAM BLANCO.png"}
+          objectFit="scale-down"
+          width={500}
+          height={500}
+          quality={100}
+        /> */}
       </span>
     </div>
   );
