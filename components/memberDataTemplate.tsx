@@ -513,11 +513,11 @@ export default function MemberDataTemplate(props: {
               label="Teléfono convencional"
               placeholder="99XXXX"
               register={registrarMiembro("telefono_convencional", {
-                pattern: /^[\d]{6}$/,
+                // pattern: /^[\d]{6}$/,
                 required: false,
               })}
               errorCondition={errors.telefono_convencional}
-              errorText="Sólo dígitos (6)"
+              // errorText="Sólo dígitos (6)"
               readOnly={readMode}
             ></Input>
 
