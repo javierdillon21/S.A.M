@@ -82,6 +82,7 @@ export default function MemberDataTemplate(props: {
         }
         console.log(`la foto es: ${miembro.foto}`);
         setValueMiembro("id", miembro.id);
+        setValueMiembro("titulo_profesional", miembro.titulo_profesional);
         setValueMiembro("nombres", miembro.nombres);
         setValueMiembro("apellidos", miembro.apellidos);
         setValueMiembro("seudonimo", miembro.seudonimo);
