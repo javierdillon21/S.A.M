@@ -13,7 +13,7 @@ import Input from "../../components/input";
 export default function Miembros() {
   const [resultPreviewMiembros, reexPreviewMiembros] = useQuery({
     query: listPreviewMiembros,
-    variables: { limit: 10 },
+    variables: { limit: 700 },
   });
   const route = useRouter();
 
