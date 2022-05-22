@@ -175,73 +175,82 @@ export default function MemberDataTemplate(props: {
       (c) => c?.id === miembroInput.id
     );
 
-    if (miembroExistente)
-      // setErrorGeneral("Ya existe una persona con este número de cedula");
-      console.log("Ya existe un miembro con ese número de cédula");
-
     if (props.mode === "creating") {
-      crearMiembro({
-        input: {
-          foto: memberfoto,
-          id: miembroInput.id,
-          nombres: miembroInput.nombres,
-          apellidos: miembroInput.apellidos,
-          seudonimo: miembroInput.seudonimo,
-          tipo_documento_identidad: miembroInput.tipo_documento_identidad,
-          titulo_profesional: miembroInput.titulo_profesional,
-          jerarquia: miembroInput.jerarquia,
-          sexo: miembroInput.sexo,
-          fecha_nacimiento: miembroInput.fecha_nacimiento,
-          nacionalidad: miembroInput.nacionalidad,
-          ciudad_residencia: miembroInput.ciudad_residencia,
-          direccion: miembroInput.direccion,
-          correo: miembroInput.correo,
-          estado_civil: miembroInput.estado_civil,
-          numero_hijos: miembroInput.numero_hijos,
-          nombre_conyuge: miembroInput.nombre_conyuge,
-          ocupacion_laboral: miembroInput.ocupacion_laboral,
-          lugar_trabajo: miembroInput.lugar_trabajo,
-          cargo_trabajo: miembroInput.cargo_trabajo,
-          tiempo_libre: miembroInput.tiempo_libre,
-          numero_hermanos: miembroInput.numero_hermanos,
-          representanteID: miembroInput.representanteID,
-          parentesco_representante: miembroInput.parentesco_representante,
-          lugar_estudio: miembroInput.lugar_estudio,
-          jornada_academica: miembroInput.jornada_academica,
-          nivel_academico_actual: miembroInput.nivel_academico_actual,
-          telefono_celular: miembroInput.telefono_celular,
-          telefono_convencional: miembroInput.telefono_convencional,
-          whatsapp: miembroInput.whatsapp,
-          nombre_padre: miembroInput.nombre_padre,
-          nombre_madre: miembroInput.nombre_madre,
-          vive_con: miembroInput.vive_con,
-          invitadorID: miembroInput.invitadorID,
-          parentesco_invitador: miembroInput.parentesco_invitador,
-          createdAt: miembroInput.createdAt,
-          registrado_por: miembroInput.registrado_por,
-          status: miembroInput.status,
-          // semilleroID: miembroInput.semilleroID,
-          // equipoID: miembroInput.equipoID,
-          // ministerioID: miembroInput.ministerioID,
-          fecha_bautizo: miembroInput.fecha_bautizo,
-          //telefono: miembroInput.telefonosPersona.map((t) => t.telefono),
-        },
-      })
-        .then((res) => {
-          if (!res.error) {
-            if (memberfoto !== "") {
-              sendImage(memberfoto, `_foto_${miembroInput.id}`);
-            }
-            console.log("Member created succesfully");
-            alert("Miembro creado con éxito");
-            router.push("/members");
-          } else {
-            console.error("Error creating the member:", res.error);
-          }
+      console.log(miembroExistente);
+      if (miembroExistente && miembroExistente.length !== 0) {
+        alert("Ya existe un miembro con ese número de cédula");
+        console.log("Ya existe un miembro con ese número de cédula");
+      } else {
+        crearMiembro({
+          input: {
+            foto: memberfoto,
+            id: miembroInput.id,
+            nombres: miembroInput.nombres,
+            apellidos: miembroInput.apellidos,
+            seudonimo: miembroInput.seudonimo,
+            tipo_documento_identidad: miembroInput.tipo_documento_identidad,
+            titulo_profesional: miembroInput.titulo_profesional,
+            jerarquia: miembroInput.jerarquia,
+            sexo: miembroInput.sexo,
+            fecha_nacimiento: miembroInput.fecha_nacimiento,
+            nacionalidad: miembroInput.nacionalidad,
+            ciudad_residencia: miembroInput.ciudad_residencia,
+            direccion: miembroInput.direccion,
+            correo: miembroInput.correo,
+            estado_civil: miembroInput.estado_civil,
+            numero_hijos: miembroInput.numero_hijos,
+            nombre_conyuge: miembroInput.nombre_conyuge,
+            ocupacion_laboral: miembroInput.ocupacion_laboral,
+            lugar_trabajo: miembroInput.lugar_trabajo,
+            cargo_trabajo: miembroInput.cargo_trabajo,
+            tiempo_libre: miembroInput.tiempo_libre,
+            numero_hermanos: miembroInput.numero_hermanos,
+            representanteID: miembroInput.representanteID,
+            parentesco_representante: miembroInput.parentesco_representante,
+            lugar_estudio: miembroInput.lugar_estudio,
+            jornada_academica: miembroInput.jornada_academica,
+            nivel_academico_actual: miembroInput.nivel_academico_actual,
+            telefono_celular: miembroInput.telefono_celular,
+            telefono_convencional: miembroInput.telefono_convencional,
+            whatsapp: miembroInput.whatsapp,
+            nombre_padre: miembroInput.nombre_padre,
+            nombre_madre: miembroInput.nombre_madre,
+            vive_con: miembroInput.vive_con,
+            invitadorID: miembroInput.invitadorID,
+            parentesco_invitador: miembroInput.parentesco_invitador,
+            createdAt: miembroInput.createdAt,
+            registrado_por: miembroInput.registrado_por,
+            status: miembroInput.status,
+            // semilleroID: miembroInput.semilleroID,
+            // equipoID: miembroInput.equipoID,
+            // ministerioID: miembroInput.ministerioID,
+            fecha_bautizo: miembroInput.fecha_bautizo,
+            //telefono: miembroInput.telefonosPersona.map((t) => t.telefono),
+          },
         })
-        .catch((err) => {
-          console.error("Error creating the member:", err);
-        });
+          .then((res) => {
+            if (!res.error) {
+              if (memberfoto !== "") {
+                sendImage(memberfoto, `_foto_${miembroInput.id}`);
+              }
+              console.log("Member created succesfully");
+              alert("Miembro creado con éxito");
+              router.push("/members");
+            } else {
+              console.error("Error creating the member:", res.error);
+              alert(
+                "Error al crear el miembro. Es posible que ya exista ese número de cédula"
+              );
+            }
+          })
+          .catch((err) => {
+            alert(
+              "Error al crear el miembro. Es posible que ya exista ese número de cédula"
+            );
+            console.error("Error creating the member:", err);
+          });
+      }
+      // setErrorGeneral("Ya existe una persona con este número de cedula");
     } else if (props.mode === "reading") {
       actualizarMiembro({
         input: {
@@ -401,11 +410,11 @@ export default function MemberDataTemplate(props: {
               label="Identificación"
               placeholder="999999XXXX"
               register={registrarMiembro("id", {
-                pattern: /^[\d]{10}$/,
+                // pattern: /^[\d]{10}$/,
                 required: true,
               })}
               errorCondition={errors.id}
-              errorText="Sólo dígitos (10)"
+              // errorText="Sólo dígitos (10)"
               readOnly={readMode}
             ></Input>
             <Input
