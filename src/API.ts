@@ -4,7 +4,6 @@
 
 export type CreateMiembroInput = {
   id?: string | null,
-  foto?: string | null,
   tipo_documento_identidad: string,
   titulo_profesional?: string | null,
   nombres: string,
@@ -49,7 +48,6 @@ export type CreateMiembroInput = {
 };
 
 export type ModelMiembroConditionInput = {
-  foto?: ModelStringInput | null,
   tipo_documento_identidad?: ModelStringInput | null,
   titulo_profesional?: ModelStringInput | null,
   nombres?: ModelStringInput | null,
@@ -167,7 +165,6 @@ export type ModelIDInput = {
 export type Miembro = {
   __typename: "Miembro",
   id: string,
-  foto?: string | null,
   tipo_documento_identidad: string,
   titulo_profesional?: string | null,
   nombres: string,
@@ -327,7 +324,6 @@ export type ModelReunionConnection = {
 
 export type UpdateMiembroInput = {
   id: string,
-  foto?: string | null,
   tipo_documento_identidad?: string | null,
   titulo_profesional?: string | null,
   nombres?: string | null,
@@ -534,7 +530,6 @@ export type DeleteSemilleroInput = {
 
 export type ModelMiembroFilterInput = {
   id?: ModelIDInput | null,
-  foto?: ModelStringInput | null,
   tipo_documento_identidad?: ModelStringInput | null,
   titulo_profesional?: ModelStringInput | null,
   nombres?: ModelStringInput | null,
@@ -665,7 +660,6 @@ export type CreateMiembroMutation = {
   createMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -701,7 +695,6 @@ export type CreateMiembroMutation = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -737,7 +730,6 @@ export type CreateMiembroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -798,7 +790,6 @@ export type CreateMiembroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -907,7 +898,6 @@ export type CreateMiembroMutation = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -943,7 +933,6 @@ export type CreateMiembroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1004,7 +993,6 @@ export type CreateMiembroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1103,7 +1091,6 @@ export type CreateMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1163,7 +1150,6 @@ export type CreateMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1234,7 +1220,6 @@ export type CreateMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1294,7 +1279,6 @@ export type UpdateMiembroMutation = {
   updateMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -1330,7 +1314,6 @@ export type UpdateMiembroMutation = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -1366,7 +1349,6 @@ export type UpdateMiembroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1427,7 +1409,6 @@ export type UpdateMiembroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1536,7 +1517,6 @@ export type UpdateMiembroMutation = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -1572,7 +1552,6 @@ export type UpdateMiembroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1633,7 +1612,6 @@ export type UpdateMiembroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1732,7 +1710,6 @@ export type UpdateMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1792,7 +1769,6 @@ export type UpdateMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1863,7 +1839,6 @@ export type UpdateMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -1923,7 +1898,6 @@ export type DeleteMiembroMutation = {
   deleteMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -1959,7 +1933,6 @@ export type DeleteMiembroMutation = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -1995,7 +1968,6 @@ export type DeleteMiembroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2056,7 +2028,6 @@ export type DeleteMiembroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2165,7 +2136,6 @@ export type DeleteMiembroMutation = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -2201,7 +2171,6 @@ export type DeleteMiembroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2262,7 +2231,6 @@ export type DeleteMiembroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2361,7 +2329,6 @@ export type DeleteMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2421,7 +2388,6 @@ export type DeleteMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2492,7 +2458,6 @@ export type DeleteMiembroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2557,7 +2522,6 @@ export type CreateAsistenciaMutation = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -2593,7 +2557,6 @@ export type CreateAsistenciaMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2654,7 +2617,6 @@ export type CreateAsistenciaMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2766,7 +2728,6 @@ export type UpdateAsistenciaMutation = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -2802,7 +2763,6 @@ export type UpdateAsistenciaMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2863,7 +2823,6 @@ export type UpdateAsistenciaMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -2975,7 +2934,6 @@ export type DeleteAsistenciaMutation = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -3011,7 +2969,6 @@ export type DeleteAsistenciaMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3072,7 +3029,6 @@ export type DeleteAsistenciaMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3326,7 +3282,6 @@ export type CreateServicioMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3376,7 +3331,6 @@ export type CreateServicioMutation = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -3412,7 +3366,6 @@ export type CreateServicioMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3473,7 +3426,6 @@ export type CreateServicioMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3598,7 +3550,6 @@ export type UpdateServicioMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3648,7 +3599,6 @@ export type UpdateServicioMutation = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -3684,7 +3634,6 @@ export type UpdateServicioMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3745,7 +3694,6 @@ export type UpdateServicioMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3870,7 +3818,6 @@ export type DeleteServicioMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -3920,7 +3867,6 @@ export type DeleteServicioMutation = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -3956,7 +3902,6 @@ export type DeleteServicioMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4017,7 +3962,6 @@ export type DeleteServicioMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4142,7 +4086,6 @@ export type CreateMinisterioMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4192,7 +4135,6 @@ export type CreateMinisterioMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -4228,7 +4170,6 @@ export type CreateMinisterioMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4289,7 +4230,6 @@ export type CreateMinisterioMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4396,7 +4336,6 @@ export type UpdateMinisterioMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4446,7 +4385,6 @@ export type UpdateMinisterioMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -4482,7 +4420,6 @@ export type UpdateMinisterioMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4543,7 +4480,6 @@ export type UpdateMinisterioMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4650,7 +4586,6 @@ export type DeleteMinisterioMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4700,7 +4635,6 @@ export type DeleteMinisterioMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -4736,7 +4670,6 @@ export type DeleteMinisterioMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4797,7 +4730,6 @@ export type DeleteMinisterioMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -4906,7 +4838,6 @@ export type CreateEquipoMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -4942,7 +4873,6 @@ export type CreateEquipoMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5003,7 +4933,6 @@ export type CreateEquipoMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5083,7 +5012,6 @@ export type CreateEquipoMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5177,7 +5105,6 @@ export type UpdateEquipoMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -5213,7 +5140,6 @@ export type UpdateEquipoMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5274,7 +5200,6 @@ export type UpdateEquipoMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5354,7 +5279,6 @@ export type UpdateEquipoMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5448,7 +5372,6 @@ export type DeleteEquipoMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -5484,7 +5407,6 @@ export type DeleteEquipoMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5545,7 +5467,6 @@ export type DeleteEquipoMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5625,7 +5546,6 @@ export type DeleteEquipoMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5709,7 +5629,6 @@ export type CreateSemilleroMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5767,7 +5686,6 @@ export type CreateSemilleroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5825,7 +5743,6 @@ export type CreateSemilleroMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -5861,7 +5778,6 @@ export type CreateSemilleroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -5922,7 +5838,6 @@ export type CreateSemilleroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6021,7 +5936,6 @@ export type UpdateSemilleroMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6079,7 +5993,6 @@ export type UpdateSemilleroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6137,7 +6050,6 @@ export type UpdateSemilleroMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -6173,7 +6085,6 @@ export type UpdateSemilleroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6234,7 +6145,6 @@ export type UpdateSemilleroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6333,7 +6243,6 @@ export type DeleteSemilleroMutation = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6391,7 +6300,6 @@ export type DeleteSemilleroMutation = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6449,7 +6357,6 @@ export type DeleteSemilleroMutation = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -6485,7 +6392,6 @@ export type DeleteSemilleroMutation = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6546,7 +6452,6 @@ export type DeleteSemilleroMutation = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6634,7 +6539,6 @@ export type GetMiembroQuery = {
   getMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -6670,7 +6574,6 @@ export type GetMiembroQuery = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -6706,7 +6609,6 @@ export type GetMiembroQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6767,7 +6669,6 @@ export type GetMiembroQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6876,7 +6777,6 @@ export type GetMiembroQuery = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -6912,7 +6812,6 @@ export type GetMiembroQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -6973,7 +6872,6 @@ export type GetMiembroQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7072,7 +6970,6 @@ export type GetMiembroQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7132,7 +7029,6 @@ export type GetMiembroQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7203,7 +7099,6 @@ export type GetMiembroQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7266,7 +7161,6 @@ export type ListMiembrosQuery = {
     items?:  Array< {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -7302,7 +7196,6 @@ export type ListMiembrosQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7363,7 +7256,6 @@ export type ListMiembrosQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7455,7 +7347,6 @@ export type GetAsistenciaQuery = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -7491,7 +7382,6 @@ export type GetAsistenciaQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7552,7 +7442,6 @@ export type GetAsistenciaQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7667,7 +7556,6 @@ export type ListAsistenciasQuery = {
       miembro?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7827,7 +7715,6 @@ export type GetServicioQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7877,7 +7764,6 @@ export type GetServicioQuery = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -7913,7 +7799,6 @@ export type GetServicioQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -7974,7 +7859,6 @@ export type GetServicioQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8097,7 +7981,6 @@ export type ListServiciosQuery = {
       miembro?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8184,7 +8067,6 @@ export type GetMinisterioQuery = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8234,7 +8116,6 @@ export type GetMinisterioQuery = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -8270,7 +8151,6 @@ export type GetMinisterioQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8331,7 +8211,6 @@ export type GetMinisterioQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8437,7 +8316,6 @@ export type ListMinisteriosQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8516,7 +8394,6 @@ export type GetEquipoQuery = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -8552,7 +8429,6 @@ export type GetEquipoQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8613,7 +8489,6 @@ export type GetEquipoQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8693,7 +8568,6 @@ export type GetEquipoQuery = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8781,7 +8655,6 @@ export type ListEquiposQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8858,7 +8731,6 @@ export type GetSemilleroQuery = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8916,7 +8788,6 @@ export type GetSemilleroQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -8974,7 +8845,6 @@ export type GetSemilleroQuery = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -9010,7 +8880,6 @@ export type GetSemilleroQuery = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9071,7 +8940,6 @@ export type GetSemilleroQuery = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9183,7 +9051,6 @@ export type ListSemillerosQuery = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9238,7 +9105,6 @@ export type OnCreateMiembroSubscription = {
   onCreateMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -9274,7 +9140,6 @@ export type OnCreateMiembroSubscription = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -9310,7 +9175,6 @@ export type OnCreateMiembroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9371,7 +9235,6 @@ export type OnCreateMiembroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9480,7 +9343,6 @@ export type OnCreateMiembroSubscription = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -9516,7 +9378,6 @@ export type OnCreateMiembroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9577,7 +9438,6 @@ export type OnCreateMiembroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9676,7 +9536,6 @@ export type OnCreateMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9736,7 +9595,6 @@ export type OnCreateMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9807,7 +9665,6 @@ export type OnCreateMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9862,7 +9719,6 @@ export type OnUpdateMiembroSubscription = {
   onUpdateMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -9898,7 +9754,6 @@ export type OnUpdateMiembroSubscription = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -9934,7 +9789,6 @@ export type OnUpdateMiembroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -9995,7 +9849,6 @@ export type OnUpdateMiembroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10104,7 +9957,6 @@ export type OnUpdateMiembroSubscription = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -10140,7 +9992,6 @@ export type OnUpdateMiembroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10201,7 +10052,6 @@ export type OnUpdateMiembroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10300,7 +10150,6 @@ export type OnUpdateMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10360,7 +10209,6 @@ export type OnUpdateMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10431,7 +10279,6 @@ export type OnUpdateMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10486,7 +10333,6 @@ export type OnDeleteMiembroSubscription = {
   onDeleteMiembro?:  {
     __typename: "Miembro",
     id: string,
-    foto?: string | null,
     tipo_documento_identidad: string,
     titulo_profesional?: string | null,
     nombres: string,
@@ -10522,7 +10368,6 @@ export type OnDeleteMiembroSubscription = {
     invitado_por?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -10558,7 +10403,6 @@ export type OnDeleteMiembroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10619,7 +10463,6 @@ export type OnDeleteMiembroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10728,7 +10571,6 @@ export type OnDeleteMiembroSubscription = {
     representante?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -10764,7 +10606,6 @@ export type OnDeleteMiembroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10825,7 +10666,6 @@ export type OnDeleteMiembroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10924,7 +10764,6 @@ export type OnDeleteMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -10984,7 +10823,6 @@ export type OnDeleteMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11055,7 +10893,6 @@ export type OnDeleteMiembroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11115,7 +10952,6 @@ export type OnCreateAsistenciaSubscription = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -11151,7 +10987,6 @@ export type OnCreateAsistenciaSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11212,7 +11047,6 @@ export type OnCreateAsistenciaSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11319,7 +11153,6 @@ export type OnUpdateAsistenciaSubscription = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -11355,7 +11188,6 @@ export type OnUpdateAsistenciaSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11416,7 +11248,6 @@ export type OnUpdateAsistenciaSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11523,7 +11354,6 @@ export type OnDeleteAsistenciaSubscription = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -11559,7 +11389,6 @@ export type OnDeleteAsistenciaSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11620,7 +11449,6 @@ export type OnDeleteAsistenciaSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11854,7 +11682,6 @@ export type OnCreateServicioSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -11904,7 +11731,6 @@ export type OnCreateServicioSubscription = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -11940,7 +11766,6 @@ export type OnCreateServicioSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12001,7 +11826,6 @@ export type OnCreateServicioSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12121,7 +11945,6 @@ export type OnUpdateServicioSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12171,7 +11994,6 @@ export type OnUpdateServicioSubscription = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -12207,7 +12029,6 @@ export type OnUpdateServicioSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12268,7 +12089,6 @@ export type OnUpdateServicioSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12388,7 +12208,6 @@ export type OnDeleteServicioSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12438,7 +12257,6 @@ export type OnDeleteServicioSubscription = {
     miembro?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -12474,7 +12292,6 @@ export type OnDeleteServicioSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12535,7 +12352,6 @@ export type OnDeleteServicioSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12655,7 +12471,6 @@ export type OnCreateMinisterioSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12705,7 +12520,6 @@ export type OnCreateMinisterioSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -12741,7 +12555,6 @@ export type OnCreateMinisterioSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12802,7 +12615,6 @@ export type OnCreateMinisterioSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12904,7 +12716,6 @@ export type OnUpdateMinisterioSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -12954,7 +12765,6 @@ export type OnUpdateMinisterioSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -12990,7 +12800,6 @@ export type OnUpdateMinisterioSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13051,7 +12860,6 @@ export type OnUpdateMinisterioSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13153,7 +12961,6 @@ export type OnDeleteMinisterioSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13203,7 +13010,6 @@ export type OnDeleteMinisterioSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -13239,7 +13045,6 @@ export type OnDeleteMinisterioSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13300,7 +13105,6 @@ export type OnDeleteMinisterioSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13404,7 +13208,6 @@ export type OnCreateEquipoSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -13440,7 +13243,6 @@ export type OnCreateEquipoSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13501,7 +13303,6 @@ export type OnCreateEquipoSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13581,7 +13382,6 @@ export type OnCreateEquipoSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13670,7 +13470,6 @@ export type OnUpdateEquipoSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -13706,7 +13505,6 @@ export type OnUpdateEquipoSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13767,7 +13565,6 @@ export type OnUpdateEquipoSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13847,7 +13644,6 @@ export type OnUpdateEquipoSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -13936,7 +13732,6 @@ export type OnDeleteEquipoSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -13972,7 +13767,6 @@ export type OnDeleteEquipoSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14033,7 +13827,6 @@ export type OnDeleteEquipoSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14113,7 +13906,6 @@ export type OnDeleteEquipoSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14192,7 +13984,6 @@ export type OnCreateSemilleroSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14250,7 +14041,6 @@ export type OnCreateSemilleroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14308,7 +14098,6 @@ export type OnCreateSemilleroSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -14344,7 +14133,6 @@ export type OnCreateSemilleroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14405,7 +14193,6 @@ export type OnCreateSemilleroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14499,7 +14286,6 @@ export type OnUpdateSemilleroSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14557,7 +14343,6 @@ export type OnUpdateSemilleroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14615,7 +14400,6 @@ export type OnUpdateSemilleroSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -14651,7 +14435,6 @@ export type OnUpdateSemilleroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14712,7 +14495,6 @@ export type OnUpdateSemilleroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14806,7 +14588,6 @@ export type OnDeleteSemilleroSubscription = {
       items?:  Array< {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14864,7 +14645,6 @@ export type OnDeleteSemilleroSubscription = {
       administrador?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -14922,7 +14702,6 @@ export type OnDeleteSemilleroSubscription = {
     administrador?:  {
       __typename: "Miembro",
       id: string,
-      foto?: string | null,
       tipo_documento_identidad: string,
       titulo_profesional?: string | null,
       nombres: string,
@@ -14958,7 +14737,6 @@ export type OnDeleteSemilleroSubscription = {
       invitado_por?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,
@@ -15019,7 +14797,6 @@ export type OnDeleteSemilleroSubscription = {
       representante?:  {
         __typename: "Miembro",
         id: string,
-        foto?: string | null,
         tipo_documento_identidad: string,
         titulo_profesional?: string | null,
         nombres: string,

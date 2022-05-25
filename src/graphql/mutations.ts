@@ -9,7 +9,6 @@ export const createMiembro = /* GraphQL */ `
   ) {
     createMiembro(input: $input, condition: $condition) {
       id
-      foto
       tipo_documento_identidad
       titulo_profesional
       nombres
@@ -44,7 +43,6 @@ export const createMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -79,7 +77,6 @@ export const createMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -137,7 +134,6 @@ export const createMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -238,7 +234,6 @@ export const createMiembro = /* GraphQL */ `
       }
       representante {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -273,7 +268,6 @@ export const createMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -331,7 +325,6 @@ export const createMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -423,7 +416,6 @@ export const createMiembro = /* GraphQL */ `
         }
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -480,7 +472,6 @@ export const createMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -545,7 +536,6 @@ export const createMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -603,7 +593,6 @@ export const updateMiembro = /* GraphQL */ `
   ) {
     updateMiembro(input: $input, condition: $condition) {
       id
-      foto
       tipo_documento_identidad
       titulo_profesional
       nombres
@@ -638,7 +627,6 @@ export const updateMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -673,7 +661,6 @@ export const updateMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -731,7 +718,6 @@ export const updateMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -832,7 +818,6 @@ export const updateMiembro = /* GraphQL */ `
       }
       representante {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -867,7 +852,6 @@ export const updateMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -925,7 +909,6 @@ export const updateMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1017,7 +1000,6 @@ export const updateMiembro = /* GraphQL */ `
         }
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1074,7 +1056,6 @@ export const updateMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1139,7 +1120,6 @@ export const updateMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1197,7 +1177,6 @@ export const deleteMiembro = /* GraphQL */ `
   ) {
     deleteMiembro(input: $input, condition: $condition) {
       id
-      foto
       tipo_documento_identidad
       titulo_profesional
       nombres
@@ -1232,7 +1211,6 @@ export const deleteMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -1267,7 +1245,6 @@ export const deleteMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1325,7 +1302,6 @@ export const deleteMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1426,7 +1402,6 @@ export const deleteMiembro = /* GraphQL */ `
       }
       representante {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -1461,7 +1436,6 @@ export const deleteMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1519,7 +1493,6 @@ export const deleteMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1611,7 +1584,6 @@ export const deleteMiembro = /* GraphQL */ `
         }
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1668,7 +1640,6 @@ export const deleteMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1733,7 +1704,6 @@ export const deleteMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1795,7 +1765,6 @@ export const createAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -1830,7 +1799,6 @@ export const createAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1888,7 +1856,6 @@ export const createAsistencia = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1991,7 +1958,6 @@ export const updateAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -2026,7 +1992,6 @@ export const updateAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2084,7 +2049,6 @@ export const updateAsistencia = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2187,7 +2151,6 @@ export const deleteAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -2222,7 +2185,6 @@ export const deleteAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2280,7 +2242,6 @@ export const deleteAsistencia = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2504,7 +2465,6 @@ export const createServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2553,7 +2513,6 @@ export const createServicio = /* GraphQL */ `
       }
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -2588,7 +2547,6 @@ export const createServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2646,7 +2604,6 @@ export const createServicio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2759,7 +2716,6 @@ export const updateServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2808,7 +2764,6 @@ export const updateServicio = /* GraphQL */ `
       }
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -2843,7 +2798,6 @@ export const updateServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2901,7 +2855,6 @@ export const updateServicio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3014,7 +2967,6 @@ export const deleteServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3063,7 +3015,6 @@ export const deleteServicio = /* GraphQL */ `
       }
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -3098,7 +3049,6 @@ export const deleteServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3156,7 +3106,6 @@ export const deleteServicio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3269,7 +3218,6 @@ export const createMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3318,7 +3266,6 @@ export const createMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -3353,7 +3300,6 @@ export const createMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3411,7 +3357,6 @@ export const createMinisterio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3509,7 +3454,6 @@ export const updateMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3558,7 +3502,6 @@ export const updateMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -3593,7 +3536,6 @@ export const updateMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3651,7 +3593,6 @@ export const updateMinisterio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3749,7 +3690,6 @@ export const deleteMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3798,7 +3738,6 @@ export const deleteMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -3833,7 +3772,6 @@ export const deleteMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3891,7 +3829,6 @@ export const deleteMinisterio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -3992,7 +3929,6 @@ export const createEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -4027,7 +3963,6 @@ export const createEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4085,7 +4020,6 @@ export const createEquipo = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4160,7 +4094,6 @@ export const createEquipo = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4247,7 +4180,6 @@ export const updateEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -4282,7 +4214,6 @@ export const updateEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4340,7 +4271,6 @@ export const updateEquipo = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4415,7 +4345,6 @@ export const updateEquipo = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4502,7 +4431,6 @@ export const deleteEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -4537,7 +4465,6 @@ export const deleteEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4595,7 +4522,6 @@ export const deleteEquipo = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4670,7 +4596,6 @@ export const deleteEquipo = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4748,7 +4673,6 @@ export const createSemillero = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4803,7 +4727,6 @@ export const createSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4858,7 +4781,6 @@ export const createSemillero = /* GraphQL */ `
       }
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -4893,7 +4815,6 @@ export const createSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -4951,7 +4872,6 @@ export const createSemillero = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5043,7 +4963,6 @@ export const updateSemillero = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5098,7 +5017,6 @@ export const updateSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5153,7 +5071,6 @@ export const updateSemillero = /* GraphQL */ `
       }
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -5188,7 +5105,6 @@ export const updateSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5246,7 +5162,6 @@ export const updateSemillero = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5338,7 +5253,6 @@ export const deleteSemillero = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5393,7 +5307,6 @@ export const deleteSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5448,7 +5361,6 @@ export const deleteSemillero = /* GraphQL */ `
       }
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -5483,7 +5395,6 @@ export const deleteSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -5541,7 +5452,6 @@ export const deleteSemillero = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres

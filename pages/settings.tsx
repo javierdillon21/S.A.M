@@ -127,7 +127,7 @@ export default function Settings() {
         crearMiembro({
           input: {
             id: registro.IDENTIFICACION,
-            foto: "",
+
             tipo_documento_identidad: registro.TIPO_DOCUMENTO,
             //titulo_profesional
             nombres: registro.NOMBRES,

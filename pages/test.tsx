@@ -6,25 +6,19 @@ import UploadTakePhoto from "../components/uploadTakePhoto";
 import { GetFormatedDate } from "../src/utils/date";
 import Image from "next/image";
 import { sendImage } from "../src/utils/storage";
+import { MemberContextMedia } from "../components/layout";
 
 export default function Test() {
   const [image, setImage] = useState<null | ArrayBuffer | string>(
     "/../public/image_profile.png"
   );
+  const [comp, setComp] = useState<string>();
+  const setFotoinContext = useContext(MemberContextMedia).setFotografia;
+  const mediacontext = useContext(MemberContextMedia).fotografia;
 
   useEffect(() => {
-    Storage.get("_foto_0932530199") // for listing ALL files without prefix, pass '' instead
-      .then((result) => {
-        console.log(result);
-        if (result) {
-          setImage(result);
-          console.log(result);
-          console.log(result);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
+    if (mediacontext != "") setImage(mediacontext);
+  }, [mediacontext]);
   function PreviewFile(e: ChangeEvent<HTMLInputElement>) {
     const reader = new FileReader();
     const file = e.target.files ? e.target.files[0] : undefined;

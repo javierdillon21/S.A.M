@@ -21,6 +21,19 @@ query ListPreviewMiembros(
 }
 `;
 
+export const listMiembrosID = /* GraphQL */ `
+query ListMiembrosID(
+  $filter: ModelMiembroFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMiembros(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      }
+  }
+}
+`;
 export const listMinisteriosByNombre = /* GraphQL */ `
 query listMinisteriosByNombre(
   $filter: ModelMinisterioFilterInput

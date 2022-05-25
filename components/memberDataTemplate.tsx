@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "urql";
 import {
@@ -23,7 +23,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getMiembro, listMiembros } from "../src/graphql/queries";
 import { GetFormatedDate, IsAMinor } from "../src/utils/date";
 import { useRouter } from "next/router";
-import { listSemillerosEssencial } from "../src/utils/customTypesSAM";
+import {
+  listMiembrosID,
+  listSemillerosEssencial,
+} from "../src/utils/customTypesSAM";
 
 import { Storage } from "aws-amplify";
 import { sendImage } from "../src/utils/storage";
@@ -39,6 +42,7 @@ import {
   Sexo,
   Status,
 } from "../src/utils/customTypesSAM";
+import SpinnerLoading from "./spinnerLoading";
 
 export default function MemberDataTemplate(props: {
   mode:
@@ -48,10 +52,12 @@ export default function MemberDataTemplate(props: {
 }) {
   const router = useRouter();
   const miembroID = router.query.id as string;
-  const memberfoto = useContext(MemberContextMedia).fotografia;
-  const setFotoinContext = useContext(MemberContextMedia).setFotografia;
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [readMode, setReadMode] = useState<boolean>(props.mode === "reading"); //readMode == true if reading mode; false if updating mode
-
+  const [image, setImage] = useState<null | ArrayBuffer | string>(
+    "/../public/image_profile.png" //imagen guardada en el buffer para mostrar
+  );
+  const [exceeds, setExceeds] = useState<boolean>(false);
   const [resultRetrieveMiembro, reexecuteRetrieveMiembro] = useQuery<
     GetMiembroQuery,
     GetMiembroQueryVariables
@@ -60,27 +66,51 @@ export default function MemberDataTemplate(props: {
     variables: { id: miembroID },
   });
   // console.log(resultRetrieveMiembro);
-  const [resultListMiembros, reexecuteQueryListMiembros] = useQuery<
-    ListMiembrosQuery,
-    ListMiembrosQueryVariables
-  >({
-    query: listMiembros,
+  const [resultListMiembrosID, reexecuteQueryListMiembros] = useQuery({
+    query: listMiembrosID,
+    variables: { limit: 700 },
   });
   const [resultRetrieveSemilleros, reexecuteRetrieveSemilleros] = useQuery({
     query: listSemillerosEssencial,
   });
-  // console.log(resultRetrieveSemilleros);
+  //Function for preview image
+  function PreviewFile(e: ChangeEvent<HTMLInputElement>) {
+    const reader = new FileReader();
+    const file = e.target.files ? e.target.files[0] : undefined;
+    reader.addEventListener(
+      "load",
+      () => {
+        setImage(reader.result);
+      },
+      false
+    );
+    if (file) {
+      reader.readAsDataURL(file);
+      if (file.size > 400000) {
+        // setExceeds(true);
+        console.log(`el tamaño del archivo en pantalla es: ${file.size}`);
+      } else setExceeds(false);
+    } else {
+      // setExceeds(false);
+      setImage("/../public/image_profile.png");
+    }
+  }
+  async function getPhotoMember(id: string) {
+    const fotoURL = await Storage.get(`_foto_${id}`);
+    if ((await fetch(fotoURL)).status === 404) {
+      setImage("/../public/image_profile.png");
+    } else {
+      setImage(fotoURL);
+    }
+  }
   useEffect(() => {
     if (props.mode === "reading") {
       let miembro = resultRetrieveMiembro.data?.getMiembro;
       let semilleros = resultRetrieveSemilleros.data?.listSemilleros.items;
 
       if (miembro && semilleros) {
-        if (setFotoinContext) {
-          //Sea que el miembro tenga o no foto, seteamos el contexto para leerlo en componente TAKEPHOTO
-          setFotoinContext(miembro.foto);
-        }
-        console.log(`la foto es: ${miembro.foto}`);
+        getPhotoMember(miembro.id);
+
         setValueMiembro("id", miembro.id);
         setValueMiembro("titulo_profesional", miembro.titulo_profesional);
         setValueMiembro("nombres", miembro.nombres);
@@ -152,7 +182,6 @@ export default function MemberDataTemplate(props: {
     formState: { errors },
   } = useForm<CreateMiembroInput>({
     defaultValues: {
-      foto: "",
       tipo_documento_identidad: Identificacion.CI,
       sexo: undefined,
       parentesco_invitador: null,
@@ -166,24 +195,27 @@ export default function MemberDataTemplate(props: {
       ministerioID: null,
       semilleroID: null,
       nacionalidad: Nacionalidad.ECUATORIANA,
-      createdAt: GetFormatedDate(), //año-mes-dia
+      createdAt: GetFormatedDate(), //año-mes-dia,
+      numero_hermanos: 0,
+      numero_hijos: 0,
     },
   });
 
   function SubmitMiembro(miembroInput: CreateMiembroInput) {
-    let miembroExistente = resultListMiembros.data?.listMiembros?.items?.filter(
-      (c) => c?.id === miembroInput.id
+    let miembroExistente = resultListMiembrosID.data.listMiembros.items.filter(
+      (c: CreateMiembroInput) => c.id === miembroInput.id
     );
 
+    console.log("miembro existente: ", miembroExistente);
+
     if (props.mode === "creating") {
-      console.log(miembroExistente);
       if (miembroExistente && miembroExistente.length !== 0) {
         alert("Ya existe un miembro con ese número de cédula");
         console.log("Ya existe un miembro con ese número de cédula");
       } else {
+        setIsSubmitting(true);
         crearMiembro({
           input: {
-            foto: memberfoto,
             id: miembroInput.id,
             nombres: miembroInput.nombres,
             apellidos: miembroInput.apellidos,
@@ -229,10 +261,11 @@ export default function MemberDataTemplate(props: {
           },
         })
           .then((res) => {
+            setIsSubmitting(false);
+
             if (!res.error) {
-              if (memberfoto !== "") {
-                sendImage(memberfoto, `_foto_${miembroInput.id}`);
-              }
+              sendImage(image as string, `_foto_${miembroInput.id}`);
+
               console.log("Member created succesfully");
               alert("Miembro creado con éxito");
               router.push("/members");
@@ -244,6 +277,7 @@ export default function MemberDataTemplate(props: {
             }
           })
           .catch((err) => {
+            setIsSubmitting(false);
             alert(
               "Error al crear el miembro. Es posible que ya exista ese número de cédula"
             );
@@ -254,7 +288,6 @@ export default function MemberDataTemplate(props: {
     } else if (props.mode === "reading") {
       actualizarMiembro({
         input: {
-          foto: memberfoto,
           id: miembroInput.id,
           nombres: miembroInput.nombres,
           apellidos: miembroInput.apellidos,
@@ -299,20 +332,24 @@ export default function MemberDataTemplate(props: {
         },
       })
         .then(async (res) => {
+          setIsSubmitting(false);
+
           if (!res.error) {
+            await Storage.remove(`_foto_${miembroID}`);
+            sendImage(image as string, `_foto_${miembroInput.id}`);
+
             console.log("Member updated succesfully");
-            if (memberfoto !== "") {
-              await Storage.remove(`_foto_${miembroID}`);
-              sendImage(memberfoto, `_foto_${miembroInput.id}`);
-            }
             alert("Datos actualizados con éxito");
 
             router.push("/members");
           } else {
+            alert("Error al actualizar los datos");
             console.error("Error updating the member:", res.error);
           }
         })
         .catch((err) => {
+          setIsSubmitting(false);
+          alert("Error al actualizar los datos");
           console.error("Error updating the member:", err);
         });
     }
@@ -334,7 +371,36 @@ export default function MemberDataTemplate(props: {
       >
         {/* INFORMACIÓN BÁSICA PERSONAL */}
         <div className="flex sm:row-span-3 flex-col h-full justify-around gap-y-5">
-          <UploadTakePhoto mode={props.mode}></UploadTakePhoto>
+          <UploadTakePhoto
+            mode={props.mode}
+            DataUrl={image as string}
+          ></UploadTakePhoto>
+          <div className="flex flex-col gap-y-2 justify-center items-center">
+            <input
+              type="file"
+              placeholder="Subir imagen"
+              onChange={PreviewFile}
+              accept="image/*"
+              className={`flex text-sm text-slate-500
+      file:mr-4 file:py-1 file:px-2
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+    file:text-tertiary-100
+      ${
+        readMode
+          ? "file:bg-slate-500"
+          : "hover:file:bg-orange-600 file:bg-secondary-50"
+      }
+    `}
+              disabled={readMode}
+            ></input>
+            {/* {exceeds && (
+              <span className="flex flex-row justify-center items-center text-sm font-medium text-delete-100 py-0.5 px-2 rounded-sm border-delete-100 gap-x-2">
+                <FontAwesomeIcon icon={"exclamation"} />
+                <p>El archivo excede el límite de 400Kb</p>
+              </span>
+            )} */}
+          </div>
 
           <span className="flex border-b font-bold text-2xl text-primary-100 justify-between">
             Datos personales
@@ -905,24 +971,23 @@ export default function MemberDataTemplate(props: {
             </div>
           </div>
         )}
-        <button
-          className={`border rounded-md py-3 sm:py-1 px-2 sm:w-1/5 sm:col-span-2 sm:justify-self-end font-bold text-lg text-tertiary-100 ${
-            readMode ? "bg-gray-400" : "bg-secondary-100"
+        <span
+          className={`flex flex-row border rounded-md py-3 sm:py-1 px-2 sm:w-1/5 sm:col-span-2 sm:justify-self-end justify-around text-lg text-tertiary-100 ${
+            readMode ? "bg-slate-500" : "bg-secondary-100 hover:bg-orange-600"
           }`}
-          disabled={readMode}
         >
-          {props.mode === "creating" ? "Crear miembro" : "Guardar cambios"}
-        </button>
+          {isSubmitting && (
+            <SpinnerLoading style="animate-spin h-5 w-5 self-center stroke-current text-white"></SpinnerLoading>
+          )}
+
+          <button className="flex" disabled={readMode}>
+            {props.mode === "creating" ? "Crear miembro" : "Guardar cambios"}
+          </button>
+        </span>
       </form>
     </div>
   );
 }
 
 {
-  /* <canvas
-        id="tutorial"
-        width="118"
-        height="139"
-        className="border"
-      ></canvas> */
 }

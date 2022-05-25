@@ -6,7 +6,6 @@ export const getMiembro = /* GraphQL */ `
   query GetMiembro($id: ID!) {
     getMiembro(id: $id) {
       id
-      foto
       tipo_documento_identidad
       titulo_profesional
       nombres
@@ -41,7 +40,6 @@ export const getMiembro = /* GraphQL */ `
       invitadorID
       invitado_por {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -76,7 +74,6 @@ export const getMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -134,7 +131,6 @@ export const getMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -235,7 +231,6 @@ export const getMiembro = /* GraphQL */ `
       }
       representante {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -270,7 +265,6 @@ export const getMiembro = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -328,7 +322,6 @@ export const getMiembro = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -420,7 +413,6 @@ export const getMiembro = /* GraphQL */ `
         }
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -477,7 +469,6 @@ export const getMiembro = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -542,7 +533,6 @@ export const getMiembro = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -602,7 +592,6 @@ export const listMiembros = /* GraphQL */ `
     listMiembros(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -637,7 +626,6 @@ export const listMiembros = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -695,7 +683,6 @@ export const listMiembros = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -779,7 +766,6 @@ export const getAsistencia = /* GraphQL */ `
       reunionID
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -814,7 +800,6 @@ export const getAsistencia = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -872,7 +857,6 @@ export const getAsistencia = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -977,7 +961,6 @@ export const listAsistencias = /* GraphQL */ `
         reunionID
         miembro {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1115,7 +1098,6 @@ export const getServicio = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1164,7 +1146,6 @@ export const getServicio = /* GraphQL */ `
       }
       miembro {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -1199,7 +1180,6 @@ export const getServicio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1257,7 +1237,6 @@ export const getServicio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1369,7 +1348,6 @@ export const listServicios = /* GraphQL */ `
         }
         miembro {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1447,7 +1425,6 @@ export const getMinisterio = /* GraphQL */ `
       servidores {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1496,7 +1473,6 @@ export const getMinisterio = /* GraphQL */ `
       administradorID
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -1531,7 +1507,6 @@ export const getMinisterio = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1589,7 +1564,6 @@ export const getMinisterio = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1692,7 +1666,6 @@ export const listMinisterios = /* GraphQL */ `
         administradorID
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1764,7 +1737,6 @@ export const getEquipo = /* GraphQL */ `
       caracter
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -1799,7 +1771,6 @@ export const getEquipo = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1857,7 +1828,6 @@ export const getEquipo = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -1932,7 +1902,6 @@ export const getEquipo = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2019,7 +1988,6 @@ export const listEquipos = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2088,7 +2056,6 @@ export const getSemillero = /* GraphQL */ `
       miembros {
         items {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2143,7 +2110,6 @@ export const getSemillero = /* GraphQL */ `
         caracter
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2198,7 +2164,6 @@ export const getSemillero = /* GraphQL */ `
       }
       administrador {
         id
-        foto
         tipo_documento_identidad
         titulo_profesional
         nombres
@@ -2233,7 +2198,6 @@ export const getSemillero = /* GraphQL */ `
         invitadorID
         invitado_por {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2291,7 +2255,6 @@ export const getSemillero = /* GraphQL */ `
         }
         representante {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres
@@ -2394,7 +2357,6 @@ export const listSemilleros = /* GraphQL */ `
         }
         administrador {
           id
-          foto
           tipo_documento_identidad
           titulo_profesional
           nombres

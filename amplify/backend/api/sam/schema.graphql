@@ -4,7 +4,6 @@ type Miembro
   @key(name: "byEquipo", fields: ["equipoID"])
   @key(name: "byMinisterio", fields: ["ministerioID"]) {
   id: ID!
-  foto: String
   # --- Añadidos recientemente
   tipo_documento_identidad: String! #CI - VISA - PASAPORTE
   titulo_profesional: String #título de tercer nivel
