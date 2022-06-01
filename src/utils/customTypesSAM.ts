@@ -31,6 +31,7 @@ query ListMiembrosID(
     items {
       id
       }
+      nextToken
   }
 }
 `;

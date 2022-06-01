@@ -28,7 +28,7 @@ import {
   listSemillerosEssencial,
 } from "../src/utils/customTypesSAM";
 
-import { Storage } from "aws-amplify";
+import { API, graphqlOperation, Storage } from "aws-amplify";
 import { sendImage } from "../src/utils/storage";
 import { MemberContextMedia } from "./layout";
 import {
@@ -57,7 +57,6 @@ export default function MemberDataTemplate(props: {
   const [image, setImage] = useState<null | ArrayBuffer | string>(
     "/../public/image_profile.png" //imagen guardada en el buffer para mostrar
   );
-  const [exceeds, setExceeds] = useState<boolean>(false);
   const [resultRetrieveMiembro, reexecuteRetrieveMiembro] = useQuery<
     GetMiembroQuery,
     GetMiembroQueryVariables
@@ -70,6 +69,7 @@ export default function MemberDataTemplate(props: {
     query: listMiembrosID,
     variables: { limit: 700 },
   });
+
   const [resultRetrieveSemilleros, reexecuteRetrieveSemilleros] = useQuery({
     query: listSemillerosEssencial,
   });
@@ -89,7 +89,7 @@ export default function MemberDataTemplate(props: {
       if (file.size > 400000) {
         // setExceeds(true);
         console.log(`el tamaño del archivo en pantalla es: ${file.size}`);
-      } else setExceeds(false);
+      }
     } else {
       // setExceeds(false);
       setImage("/../public/image_profile.png");
@@ -200,7 +200,6 @@ export default function MemberDataTemplate(props: {
       numero_hijos: 0,
     },
   });
-
   function SubmitMiembro(miembroInput: CreateMiembroInput) {
     let miembroExistente = resultListMiembrosID.data.listMiembros.items.filter(
       (c: CreateMiembroInput) => c.id === miembroInput.id
@@ -286,6 +285,7 @@ export default function MemberDataTemplate(props: {
       }
       // setErrorGeneral("Ya existe una persona con este número de cedula");
     } else if (props.mode === "reading") {
+      setIsSubmitting(true);
       actualizarMiembro({
         input: {
           id: miembroInput.id,
@@ -972,7 +972,7 @@ export default function MemberDataTemplate(props: {
           </div>
         )}
         <span
-          className={`flex flex-row border rounded-md py-3 sm:py-1 px-2 sm:w-1/5 sm:col-span-2 sm:justify-self-end justify-around text-lg text-tertiary-100 ${
+          className={`flex flex-row border rounded-md py-3 sm:py-1 px-2 sm:w-1/5 sm:col-span-2 sm:justify-self-end justify-center gap-5 md:gap-0 md:justify-around  text-lg text-tertiary-100 ${
             readMode ? "bg-slate-500" : "bg-secondary-100 hover:bg-orange-600"
           }`}
         >
