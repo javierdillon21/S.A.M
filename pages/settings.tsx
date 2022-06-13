@@ -60,8 +60,8 @@ export default function Settings() {
     query: listEquiposByNombre,
   });
   const [resultSemilleros, ress] = useQuery({ query: listSemilleros });
-  // console.log(resultSemilleros);
-
+  console.log(resultSemilleros);
+  console.log(resultMinisteriosByNombre);
   //Mutation provisional para crear miembros con datos tomados desde el doc .xlsx
   const [createMiembroResult, crearMiembro] = useMutation<
     CreateMiembroMutation,
