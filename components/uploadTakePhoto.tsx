@@ -6,13 +6,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import Input from "./input";
+
 import Image from "next/image";
-import { Storage } from "aws-amplify";
-import { MemberContextMedia } from "./layout";
-import { ConsoleLogger } from "@aws-amplify/core";
-import { resourceLimits } from "worker_threads";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function UploadTakePhoto(props: {
   mode: "reading" | "creating";

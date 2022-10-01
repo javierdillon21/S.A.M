@@ -894,7 +894,7 @@ export default function MemberDataTemplate(props: {
 
         {/* INFORMACIÓN MINISTERIAL */}
         {/* REACT SELECT */}
-        {/* Esta sección sólo se muestra cuando se quiera leer o actualizar los datos. Escencialmente para asignación de nuevos miembros*/}
+        {/* Esta sección sólo se muestra cuando se quiera leer o actualizar los datos. Esencialmente para asignación de nuevos miembros*/}
         {props.mode === "reading" && (
           <div className="flex flex-col h-full justify-around gap-y-5">
             <span className="border-b font-bold text-2xl text-primary-100">
