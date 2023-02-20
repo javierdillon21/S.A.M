@@ -11,16 +11,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../components/input";
 
 export default function Miembros() {
+ 
+  const [miembrosCache, setMiembrosCache]= useState<any>();
+  async function getFromCache(tipo:string) {
+    const response = await fetch(`http://34.235.129.222:3000/${tipo}`, {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+    setMiembrosCache(response)
+  }
+   async function postToCache(data:any) {
+      const response = await fetch('http://34.235.129.222:3000', {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+   }
+
+  getFromCache("usuario");
   const [resultPreviewMiembros, reexPreviewMiembros] = useQuery({
     query: listPreviewMiembros,
     variables: { limit: 700 },
   });
+  
+  if(!miembrosCache){
+    console.log(resultPreviewMiembros)
+    if (resultPreviewMiembros.data == undefined) return <div>loading...</div>;
+    postToCache(resultPreviewMiembros)
+  }
   const route = useRouter();
 
   const [searchText, setSearchText] = useState<string>("");
 
-  if (resultPreviewMiembros.data == undefined) return <div>loading...</div>;
-  console.log(resultPreviewMiembros);
   return (
     <>
       <Header title_page="Miembros" />
@@ -50,7 +76,7 @@ export default function Miembros() {
           />
         </button>
       </section>
-      <ListTable
+      {(!miembrosCache) && (<ListTable
         data={resultPreviewMiembros.data.listMiembros.items.filter(
           (entity: Object) =>
             entity &&
@@ -62,7 +88,20 @@ export default function Miembros() {
         tableHeaders={Object.keys(
           resultPreviewMiembros.data.listMiembros.items[0]
         )}
-      ></ListTable>
+      ></ListTable>)}
+      {(miembrosCache) && (<ListTable
+        data={miembrosCache.filter(
+          (entity: Object) =>
+            entity &&
+            Object.values(entity)
+              .join()
+              .toLowerCase()
+              .includes((searchText && searchText.toLowerCase()) || "")
+        )}
+        tableHeaders={Object.keys(
+          miembrosCache[0]
+        )}
+      ></ListTable>)}
     </>
   );
 }
